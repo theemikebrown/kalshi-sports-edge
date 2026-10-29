@@ -9,3 +9,4 @@ snapshot_utc,ticker,matchup,selection,yes_ask,model_probability,assumed_fee,esti
 2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT29SACNOP-SAC,Sacramento vs New Orleans,Sacramento wins,0.33,0.478,0.02,0.128,2026-10-29,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT30LACMIN-LAC,Los Angeles C vs Minnesota,Los Angeles C wins,0.35,0.492,0.02,0.122,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT30HOUDAL-DAL,Houston vs Dallas,Dallas wins,0.34,0.48,0.02,0.12,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 01:36:08 UTC,KXNBAGAME-26OCT30ORLTOR-ORL,Orlando vs Toronto,Orlando wins,0.38,0.482,0.02,0.082,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
