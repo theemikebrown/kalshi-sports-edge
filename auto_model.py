@@ -83,6 +83,15 @@ def calibration_bins(preds):
                      "observed_rate":round(sum(y for _,y in subset)/len(subset),3) if subset else None})
     return bins
 
+def wilson_interval(wins, n, z=1.96):
+    """95% Wilson score interval for observed classification accuracy, not trade win probability."""
+    if not n: return None
+    phat=wins/n
+    denom=1+z*z/n
+    center=(phat+z*z/(2*n))/denom
+    half=z*math.sqrt((phat*(1-phat)+z*z/(4*n))/n)/denom
+    return [round(max(0,center-half),3),round(min(1,center+half),3)]
+
 def validation(preds):
     if not preds: return {"games":0,"brier":None,"accuracy":None,"baseline_brier":None}
     n=len(preds)
@@ -91,6 +100,8 @@ def validation(preds):
             "accuracy":sum((p>=.5)==bool(y) for p,y in preds)/n,
             "baseline_brier":sum((.5-y)**2 for _,y in preds)/n,
             "calibration_bins":calibration_bins(preds),
+            "accuracy_95pct_wilson_interval":wilson_interval(sum((p>=.5)==bool(y) for p,y in preds),n),
+            "home_team_baseline_accuracy":None,
             "calibration_note":"Out-of-sample descriptive bins; not enough observations for reliable probability calibration."}
 
 def parse_teams(ticker):
@@ -142,15 +153,16 @@ def ranking(rows,fee,minimum_games=5):
     """Returns ranked exploratory candidates, game count, and validation metadata."""
     end=datetime.now(timezone.utc)
     # Longer training window for prior-season strength. Daily API fetches can take time.
-    games,failures=recent_results(end-timedelta(days=120),end)
+    games,failures=recent_results(end-timedelta(days=210),end)
     if len(failures)>20:
         raise RuntimeError(f"Historical data unavailable for {len(failures)} dates; cannot generate trustworthy rankings")
     elo,played,preds=fit_and_backtest(games)
     metrics=validation(preds)
     metrics["failed_dates"]=len(failures)
-    metrics["warning"]="No fitted calibration, injuries or lineup adjustments; rest is descriptive. No historical execution-price backtest."
+    metrics["historical_lookback_days"]=210
+    metrics["warning"]="No fitted calibration, injuries or lineup adjustments; rest is descriptive. No historical execution-price backtest. A longer lookback does not guarantee better forecasts."
     metrics['model_reliability']=confidence(metrics)
-    metrics["model_version"]="0.8"
+    metrics["model_version"]="0.9"
     metrics["validation_method"]="Chronological one-step-ahead, with fixed conservative shrinkage applied to predictions"
     metrics['validation_note']='A better Brier score is not proof of tradable edge; no historical Kalshi quotes or actual fills were tested.'
     schedule=upcoming_context(rows,games)

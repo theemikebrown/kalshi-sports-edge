@@ -57,3 +57,12 @@ Run `python cloud_job.py --render-only` to generate a local static preview witho
 - Interactive Streamlit and static GitHub Pages both offer 60%, 65%, 70%, and 75% filters. The static page reads precomputed rankings; it does not fetch live prices or make trades.
 - Home venue uses ESPN evidence where available. Rest days remain descriptive because no verified adjustment has been trained. Injuries and lineups remain unavailable; no unsupported improvement in prediction accuracy is claimed.
 - The daily workflow and historical CSV are unchanged. Upload updated Python files and `docs/index.html` only if needed; never replace cloud `data/` history with older local copies.
+
+
+## Version 0.9 — longer historical evaluation
+- Extends the historical ESPN completed-game lookback from 120 to 210 days, spanning more of the prior NBA season. This may take several minutes during cloud runs.
+- Displays a 95% Wilson uncertainty interval for historical walk-forward classification accuracy. This is **not** a per-trade confidence interval or a calibrated win probability.
+- Reports the number of ESPN dates that failed to load and retains walk-forward Brier score and probability bins.
+- Keeps highest estimated win probability separate from best model-estimated value; default 75% threshold with 60/65/70/75% choices.
+- **No claim of improved accuracy:** extra data must be validated before asserting performance gains. No injury/lineup feed or execution-price backtest.
+- Keep the existing GitHub Actions schedule and Pages configuration. Upload the changed files without overwriting your historical `data/` folder.
