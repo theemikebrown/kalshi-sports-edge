@@ -1,0 +1,120 @@
+"""Exploratory NBA Elo model with walk-forward validation. NOT a trading signal."""
+import json, math
+from collections import defaultdict
+from datetime import datetime, timedelta, timezone
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
+
+ESPN="https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard"
+ALIASES={"GS":"GSW","NY":"NYK","SA":"SAS","NO":"NOP","UTAH":"UTA","WSH":"WAS","PHO":"PHX","BKN":"BKN"}
+HOME_ADVANTAGE=65.0
+K=20.0
+def _norm(v): return ALIASES.get(v,v)
+def _get_day(day):
+    url=ESPN+"?"+urlencode({"dates":day.strftime("%Y%m%d")})
+    with urlopen(Request(url,headers={"User-Agent":"Mozilla/5.0","Accept":"application/json"}),timeout=12) as r:
+        data=json.load(r)
+    out=[]
+    for e in data.get("events",[]):
+        if not e.get("status",{}).get("type",{}).get("completed"): continue
+        for comp in e.get("competitions",[]):
+            try:
+                ts=comp["competitors"]
+                h=next(t for t in ts if t["homeAway"]=="home")
+                a=next(t for t in ts if t["homeAway"]=="away")
+                hs,ass=int(h["score"]),int(a["score"])
+                if hs==ass: continue
+                out.append((e.get("date",day.isoformat()),_norm(h["team"]["abbreviation"]),_norm(a["team"]["abbreviation"]),hs,ass))
+            except (KeyError,StopIteration,ValueError,TypeError): continue
+    return out
+
+def recent_results(start,end):
+    """Fetch day-by-day; avoid ESPN range HTTP 400. Returns (games,failed_dates)."""
+    day=start.date() if isinstance(start,datetime) else start
+    last=end.date() if isinstance(end,datetime) else end
+    results={}
+    failures=[]
+    while day<=last:
+        try:
+            for g in _get_day(day):
+                results[(g[0],g[1],g[2])]=g
+        except Exception as exc:
+            failures.append(f"{day.isoformat()}: {type(exc).__name__}")
+        day+=timedelta(days=1)
+    return sorted(results.values()),failures
+
+def prob(elo,home,away,venue=True):
+    adv=HOME_ADVANTAGE if venue else 0
+    return 1/(1+10**((elo[away]-elo[home]-adv)/400))
+
+def fit_and_backtest(games):
+    """Chronological one-step-ahead evaluation; no training on future games."""
+    elo=defaultdict(lambda:1500.)
+    played=defaultdict(int)
+    preds=[]
+    last_season=None
+    for date,home,away,hs,ass in sorted(games):
+        season=(int(date[:4])+1) if int(date[5:7])>=7 else int(date[:4])
+        if last_season is not None and season!=last_season:
+            for team in list(elo): elo[team]=1500+(elo[team]-1500)*0.65
+        last_season=season
+        p=prob(elo,home,away)
+        if played[home]>=5 and played[away]>=5:
+            y=1 if hs>ass else 0
+            preds.append((p,y))
+        outcome=1 if hs>ass else 0
+        change=K*(outcome-p)
+        elo[home]+=change
+        elo[away]-=change
+        played[home]+=1
+        played[away]+=1
+    return elo,played,preds
+
+def validation(preds):
+    if not preds: return {"games":0,"brier":None,"accuracy":None,"baseline_brier":None}
+    n=len(preds)
+    return {"games":n,
+            "brier":sum((p-y)**2 for p,y in preds)/n,
+            "accuracy":sum((p>=.5)==bool(y) for p,y in preds)/n,
+            "baseline_brier":sum((.5-y)**2 for _,y in preds)/n}
+
+def parse_teams(ticker):
+    try:
+        part=ticker.split("-")[1][7:]
+        return (part[:3],part[3:]) if len(part)==6 else None
+    except (IndexError,TypeError): return None
+
+def ranking(rows,fee,minimum_games=5):
+    """Returns ranked exploratory candidates, game count, and validation metadata."""
+    end=datetime.now(timezone.utc)
+    # Longer training window for prior-season strength. Daily API fetches can take time.
+    games,failures=recent_results(end-timedelta(days=120),end)
+    if len(failures)>20:
+        raise RuntimeError(f"Historical data unavailable for {len(failures)} dates; cannot generate trustworthy rankings")
+    elo,played,preds=fit_and_backtest(games)
+    metrics=validation(preds)
+    metrics["failed_dates"]=len(failures)
+    metrics["warning"]="Not calibrated, no injuries/lineups/rest adjustment; backtest excludes real market prices and fees."
+    candidates=[]
+    for row in rows:
+        teams=parse_teams(row.get("ticker",""))
+        if not teams: continue
+        first,second=teams
+        n=min(played[first],played[second])
+        if n<minimum_games: continue
+        # Kalshi ticker encodes two teams but not home venue. Neutral probability only.
+        p=prob(elo,first,second,venue=False)
+        # Conservative shrinkage for limited history; not empirically calibrated.
+        p=.5+(p-.5)*n/(n+25)
+        selected=row["ticker"].split("-")[-1]
+        if selected==second: p=1-p
+        elif selected!=first: continue
+        ask=row.get("yes_ask")
+        if ask is None or not 0<float(ask)<1: continue
+        edge=p-float(ask)-fee
+        candidates.append({"matchup":row.get("event",""),"selection":row.get("title",""),
+            "ticker":row["ticker"],"YES ask":round(float(ask),3),
+            "heuristic probability":round(p,3),"estimated edge after assumed fee":round(edge,3),
+            "games per team (min)":n,"signal":"EXPLORATORY — NOT VALIDATED"})
+    candidates.sort(key=lambda r:r["estimated edge after assumed fee"],reverse=True)
+    return candidates,len(games),metrics
