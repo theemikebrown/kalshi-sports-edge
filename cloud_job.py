@@ -97,7 +97,7 @@ def safe_pregame(rows,now):
 
 def save_rankings(candidates, now, diagnostics=None):
     high, value=split_rankings(candidates,minimum_probability=.75,limit=10)
-    payload={'generated_utc':now.isoformat(),'minimum_probability':.75,
+    payload={'generated_utc':now.isoformat(),'minimum_probability':.75,'all_candidates':candidates,
              'highest_win_probability':high,'best_estimated_value':value,
              'diagnostics':diagnostics or {}}
     RANKINGS.parent.mkdir(parents=True,exist_ok=True)
@@ -110,7 +110,7 @@ def render(status=''):
     def rankings_table(rows):
         if not rows: return '<p class="muted">No eligible candidates in this ranking.</p>'
         fields=[('matchup','Matchup'),('selection','Selection'),('heuristic probability','Model estimate'),
-                ('YES ask','YES ask'),('estimated edge after assumed fee','Model-estimated edge')]
+                ('YES ask','YES ask'),('estimated edge after assumed fee','Model-estimated edge'),('model confidence','Model confidence')]
         headers=''.join('<th>'+html.escape(label)+'</th>' for _,label in fields)
         cells=''.join('<tr>'+''.join('<td>'+html.escape(str(row.get(k,'')))+'</td>' for k,_ in fields)+'</tr>' for row in rows)
         return '<div class="scroll"><table><thead><tr>'+headers+'</tr></thead><tbody>'+cells+'</tbody></table></div>'
@@ -122,6 +122,10 @@ def render(status=''):
     baseline=html.escape(str(diagnostics.get('baseline_brier','—')))
     high_table=rankings_table(rankings.get('highest_win_probability',[]))
     value_table=rankings_table(rankings.get('best_estimated_value',[]))
+    # Static Pages supports threshold changes in-browser without running Python.
+    candidates_json=json.dumps(rankings.get('all_candidates', rankings.get('best_estimated_value',[]))).replace('<','\u003c')
+    bins=diagnostics.get('calibration_bins',[])
+    bins_html='<p class="muted">No calibration diagnostics available.</p>' if not bins else '<div class="scroll"><table><thead><tr><th>Probability range</th><th>Games</th><th>Average prediction</th><th>Observed win rate</th></tr></thead><tbody>'+''.join('<tr><td>'+html.escape(str(b.get('range','')))+'</td><td>'+html.escape(str(b.get('count','')))+'</td><td>'+html.escape(str(b.get('mean_prediction','—')))+'</td><td>'+html.escape(str(b.get('observed_rate','—')))+'</td></tr>' for b in bins)+'</tbody></table></div>'
     stats=summary(records)
     def fmt(x): return html.escape(str(x if x is not None else ''))
     cols=['snapshot_utc','matchup','selection','yes_ask','model_probability','estimated_edge','game_date','status','winning_team','hypothetical_pnl_per_contract']
@@ -131,7 +135,21 @@ def render(status=''):
     latest=fmt(records[-1]['snapshot_utc']) if records else 'No snapshots yet'
     page=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Kalshi Sports Edge — Research Tracker</title><style>
 body{{font-family:system-ui,-apple-system,sans-serif;background:#101218;color:#f2f3f6;margin:0;padding:32px;line-height:1.5}}main{{max-width:1400px;margin:auto}}h1{{font-size:2rem}}.muted{{color:#a8b0bd}}.warning{{background:#36331d;padding:16px;border-radius:10px}}.stats{{display:flex;gap:16px;flex-wrap:wrap;margin:25px 0}}.stat{{background:#20242e;padding:16px 25px;border-radius:10px;min-width:155px}}.num{{font-size:1.7rem;font-weight:700}}.scroll{{overflow-x:auto}}table{{border-collapse:collapse;width:100%;font-size:.9rem}}td,th{{border-bottom:1px solid #333a46;padding:10px;text-align:left;white-space:nowrap}}th{{background:#262b36}}a{{color:#8cc9ff}}
-</style></head><body><main><h1>🏀 Kalshi Sports Edge — Cloud Research Tracker</h1><p class="muted">Daily research snapshots and ESPN outcome checks. Last saved snapshot: {latest}</p><p class="warning">Research only. The NBA Elo model has not demonstrated predictive or trading profitability. Hypothetical P/L assumes one YES contract at the observed ask plus a flat assumed fee; it is NOT verified fill, settlement, or realized profit. Public GitHub repositories expose this data.</p><h2>Model reliability</h2><p class="warning">{reliability}. Walk-forward games: {nvalidated}; Brier: {brier}; 50/50 baseline Brier: {baseline}. Home court is included only when ESPN schedule confirms the venue; rest days are descriptive and not used as a predictive adjustment. No verified market-price backtest.</p><h2>🎯 Highest estimated win probability (75% minimum)</h2><p class="muted">Experimental probabilities, not verified win rates. No qualifying selections is a valid outcome.</p>{high_table}<h2>💰 Best model-estimated value after assumed fees</h2><p class="muted">These differences are not verified profitable edges. Prices can change. Last ranking snapshot: {rank_date}.</p>{value_table}<h2>Research snapshot performance</h2><section class="stats"><div class="stat">Snapshots<div class="num">{stats['snapshots']}</div></div><div class="stat">Resolved<div class="num">{stats['resolved']}</div></div><div class="stat">Win rate<div class="num">{winrate}</div></div><div class="stat">Hypothetical P/L<div class="num">${stats['hypothetical_pnl']:+.2f}</div></div><div class="stat">Hypothetical ROI<div class="num">{roi}</div></div></section><p class="muted">{fmt(status)}</p><div class="scroll"><table><thead><tr>{''.join('<th>'+fmt(c.replace('_',' ').title())+'</th>' for c in cols)}</tr></thead><tbody>{table}</tbody></table></div><p class="muted">Snapshot timestamps are UTC. Outcomes are ESPN final scores, not Kalshi settlements. Prices are observed quotes, not guaranteed executions. Data is only updated when the scheduled workflow runs.</p></main></body></html>'''
+</style></head><body><main><h1>🏀 Kalshi Sports Edge — Cloud Research Tracker</h1><p class="muted">Daily research snapshots and ESPN outcome checks. Last saved snapshot: {latest}</p><p class="warning">Research only. The NBA Elo model has not demonstrated predictive or trading profitability. Hypothetical P/L assumes one YES contract at the observed ask plus a flat assumed fee; it is NOT verified fill, settlement, or realized profit. Public GitHub repositories expose this data.</p><h2>Model reliability</h2><p class="warning">{reliability}. Walk-forward games: {nvalidated}; Brier: {brier}; 50/50 baseline Brier: {baseline}. Home court is included only when ESPN schedule confirms the venue; rest days are descriptive and not used as a predictive adjustment. No verified market-price backtest.</p><h3>Out-of-sample probability diagnostics</h3><p class="muted">These bins are descriptive, not calibrated probabilities. Small groups are especially unreliable.</p>{bins_html}<h2>🎯 Highest estimated win probability (<span id="threshold-label">75%</span> minimum)</h2><label for="threshold">Probability threshold: </label><select id="threshold"><option value="0.60">60%</option><option value="0.65">65%</option><option value="0.70">70%</option><option value="0.75" selected>75%</option></select><p class="muted">Experimental probabilities, not verified win rates. No qualifying selections is a valid outcome.</p><div id="dynamic-high">{high_table}</div><h2>💰 Best model-estimated value after assumed fees</h2><p class="muted">These differences are not verified profitable edges. Prices can change. Last ranking snapshot: {rank_date}.</p>{value_table}<h2>Research snapshot performance</h2><section class="stats"><div class="stat">Snapshots<div class="num">{stats['snapshots']}</div></div><div class="stat">Resolved<div class="num">{stats['resolved']}</div></div><div class="stat">Win rate<div class="num">{winrate}</div></div><div class="stat">Hypothetical P/L<div class="num">${stats['hypothetical_pnl']:+.2f}</div></div><div class="stat">Hypothetical ROI<div class="num">{roi}</div></div></section><p class="muted">{fmt(status)}</p><div class="scroll"><table><thead><tr>{''.join('<th>'+fmt(c.replace('_',' ').title())+'</th>' for c in cols)}</tr></thead><tbody>{table}</tbody></table></div><p class="muted">Snapshot timestamps are UTC. Outcomes are ESPN final scores, not Kalshi settlements. Prices are observed quotes, not guaranteed executions. Data is only updated when the scheduled workflow runs.</p><script type="application/json" id="candidate-data">{candidates_json}</script><script>
+const allCandidates=JSON.parse(document.getElementById('candidate-data').textContent);
+const fields=[['matchup','Matchup'],['selection','Selection'],['heuristic probability','Model estimate'],['YES ask','YES ask'],['estimated edge after assumed fee','Model-estimated edge'],['model confidence','Model confidence']];
+function refreshHigh(){{
+ const cutoff=Number(document.getElementById('threshold').value);
+ document.getElementById('threshold-label').textContent=Math.round(cutoff*100)+'%';
+ const rows=allCandidates.filter(r=>Number(r['heuristic probability'])>=cutoff).sort((a,b)=>Number(b['heuristic probability'])-Number(a['heuristic probability'])).slice(0,10);
+ const target=document.getElementById('dynamic-high');target.replaceChildren();
+ if(!rows.length){{const p=document.createElement('p');p.className='muted';p.textContent='No eligible candidates in this ranking.';target.append(p);return;}}
+ const wrap=document.createElement('div');wrap.className='scroll';const table=document.createElement('table');const thead=document.createElement('thead');const tr=document.createElement('tr');
+ for(const [,label] of fields){{const th=document.createElement('th');th.textContent=label;tr.append(th);}}thead.append(tr);table.append(thead);
+ const tbody=document.createElement('tbody');for(const row of rows){{const tr=document.createElement('tr');for(const [key] of fields){{const td=document.createElement('td');td.textContent=String(row[key]??'');tr.append(td);}}tbody.append(tr);}}table.append(tbody);wrap.append(table);target.append(wrap);
+}}
+document.getElementById('threshold').addEventListener('change',refreshHigh);
+</script></main></body></html>'''
     DOCS.parent.mkdir(parents=True,exist_ok=True)
     DOCS.write_text(page,encoding='utf-8')
 

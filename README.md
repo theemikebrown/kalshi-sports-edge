@@ -47,3 +47,13 @@ Run `python cloud_job.py --render-only` to generate a local static preview witho
 - The model's historical validation was worse than a 50/50 baseline in the user's initial run. Do not interpret estimates as reliable or place trades based solely on these rankings.
 - GitHub Pages may publish after the scheduled workflow updates the docs folder. No automatic real-money trading.
 - Upload all project files including `ranking_views.py` and `.github/workflows/daily-research.yml` directly to the root of your repository. Do not upload `.venv` or `__pycache__`.
+
+
+## Version 0.8: reliability-first model and adjustable threshold
+
+- Walk-forward Brier score now evaluates the same fixed, conservative probability shrinkage used for upcoming games (the prior validation evaluated raw Elo probabilities).
+- Out-of-sample probability bins show counts, mean forecasts, and observed win rates. These are **diagnostics**, not a fitted calibration model; 42 games are not enough for trustworthy calibration.
+- Individual selections carry `model confidence`: `UNVALIDATED` until the model has at least 100 out-of-sample games and beats a 50/50 Brier baseline. Even then, a positive result is not proof of tradable edge.
+- Interactive Streamlit and static GitHub Pages both offer 60%, 65%, 70%, and 75% filters. The static page reads precomputed rankings; it does not fetch live prices or make trades.
+- Home venue uses ESPN evidence where available. Rest days remain descriptive because no verified adjustment has been trained. Injuries and lineups remain unavailable; no unsupported improvement in prediction accuracy is claimed.
+- The daily workflow and historical CSV are unchanged. Upload updated Python files and `docs/index.html` only if needed; never replace cloud `data/` history with older local copies.

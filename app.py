@@ -100,7 +100,7 @@ with scanner:
         else:
             df=pd.DataFrame(rows)
             st.subheader('🏆 Automatic NBA candidate ranking')
-            st.caption('Experimental only: up to 120 days of completed ESPN NBA games, season-transition regression, conservative shrinkage, and walk-forward validation. No verified injury, lineup, rest, or matchup-venue adjustment. **Do not treat rankings as profitable trade signals.**')
+            st.caption('Experimental only: up to 120 days of completed ESPN NBA games, season-transition regression, conservative shrinkage, and walk-forward validation. Home court uses confirmed venue; rest is descriptive, not an adjustment. **Do not treat rankings as profitable trade signals.**')
             try:
                 with st.spinner('Estimating recent-form probabilities from completed games…'):
                     ranked, games_used, diagnostics = ranking(rows,fee)
@@ -110,17 +110,21 @@ with scanner:
                 else:
                     st.info('Insufficient games for a meaningful walk-forward validation sample.')
                 st.caption('These metrics measure game predictions only, not returns from Kalshi trades. No historical execution-price or fee backtest is included.')
+                if diagnostics.get('calibration_bins'):
+                    st.caption('Descriptive out-of-sample probability bins (small samples; not fitted calibration):')
+                    st.dataframe(pd.DataFrame(diagnostics['calibration_bins']),hide_index=True,width='stretch')
                 if ranked:
                     top=pd.DataFrame(ranked[:10])
                     st.dataframe(top,hide_index=True,use_container_width=True)
                     st.warning('Model reliability: '+str(diagnostics.get('model_reliability','UNVERIFIED'))+'. Venue evidence is shown where available; rest days are descriptive, not validated predictive adjustments. No historical Kalshi price backtest.')
-                    high_probability, best_value = split_rankings(ranked,minimum_probability=.75,limit=10)
-                    st.subheader('🎯 Highest estimated win probability (75% minimum)')
+                    threshold=st.select_slider('Minimum estimated win probability',options=[.60,.65,.70,.75],value=.75,format_func=lambda x:f'{x:.0%}')
+                    high_probability, best_value = split_rankings(ranked,minimum_probability=threshold,limit=10)
+                    st.subheader(f'🎯 Highest estimated win probability ({threshold:.0%} minimum)')
                     st.caption('Experimental Elo probabilities, not reliable win rates. High probability does not imply positive expected value.')
                     if high_probability:
                         st.dataframe(pd.DataFrame(high_probability),hide_index=True,use_container_width=True)
                     else:
-                        st.info('No candidates meet the 75% model-estimated probability threshold. This is expected while the unvalidated model shrinks predictions toward 50%.')
+                        st.info(f'No candidates meet the {threshold:.0%} model-estimated probability threshold. The model is not validated.')
                     st.subheader('💰 Best estimated value after assumed fees')
                     st.caption('Ranked by experimental probability minus observed YES ask and assumed fee. These are NOT validated profitable opportunities.')
                     if best_value:

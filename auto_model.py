@@ -1,4 +1,4 @@
-"""Exploratory NBA Elo model with walk-forward validation. NOT a trading signal."""
+"""Exploratory NBA Elo with prequential validation and reliability diagnostics. NOT a trading signal."""
 import json, math
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
@@ -61,7 +61,10 @@ def fit_and_backtest(games):
         p=prob(elo,home,away)
         if played[home]>=5 and played[away]>=5:
             y=1 if hs>ass else 0
-            preds.append((p,y))
+            # Apply the SAME fixed shrinkage used for future predictions, using only prior games.
+            n=min(played[home],played[away])
+            conservative_p=.5+(p-.5)*n/(n+25)
+            preds.append((conservative_p,y))
         outcome=1 if hs>ass else 0
         change=K*(outcome-p)
         elo[home]+=change
@@ -70,13 +73,25 @@ def fit_and_backtest(games):
         played[away]+=1
     return elo,played,preds
 
+def calibration_bins(preds):
+    """Descriptive out-of-sample reliability bins; no fitted calibration on test outcomes."""
+    bins=[]
+    for lo,hi in ((0,.4),(.4,.5),(.5,.6),(.6,1.000001)):
+        subset=[(p,y) for p,y in preds if lo<=p<hi]
+        bins.append({"range":f"{lo:.0%}–{min(hi,1):.0%}","count":len(subset),
+                     "mean_prediction":round(sum(p for p,_ in subset)/len(subset),3) if subset else None,
+                     "observed_rate":round(sum(y for _,y in subset)/len(subset),3) if subset else None})
+    return bins
+
 def validation(preds):
     if not preds: return {"games":0,"brier":None,"accuracy":None,"baseline_brier":None}
     n=len(preds)
     return {"games":n,
             "brier":sum((p-y)**2 for p,y in preds)/n,
             "accuracy":sum((p>=.5)==bool(y) for p,y in preds)/n,
-            "baseline_brier":sum((.5-y)**2 for _,y in preds)/n}
+            "baseline_brier":sum((.5-y)**2 for _,y in preds)/n,
+            "calibration_bins":calibration_bins(preds),
+            "calibration_note":"Out-of-sample descriptive bins; not enough observations for reliable probability calibration."}
 
 def parse_teams(ticker):
     try:
@@ -133,8 +148,10 @@ def ranking(rows,fee,minimum_games=5):
     elo,played,preds=fit_and_backtest(games)
     metrics=validation(preds)
     metrics["failed_dates"]=len(failures)
-    metrics["warning"]="Not calibrated, no injuries/lineups/rest adjustment; backtest excludes real market prices and fees."
+    metrics["warning"]="No fitted calibration, injuries or lineup adjustments; rest is descriptive. No historical execution-price backtest."
     metrics['model_reliability']=confidence(metrics)
+    metrics["model_version"]="0.8"
+    metrics["validation_method"]="Chronological one-step-ahead, with fixed conservative shrinkage applied to predictions"
     metrics['validation_note']='A better Brier score is not proof of tradable edge; no historical Kalshi quotes or actual fills were tested.'
     schedule=upcoming_context(rows,games)
     candidates=[]
@@ -167,7 +184,14 @@ def ranking(rows,fee,minimum_games=5):
         ask=row.get("yes_ask")
         if ask is None or not 0<float(ask)<1: continue
         edge=p-float(ask)-fee
-        candidates.append({"matchup":row.get("event",""),"selection":row.get("title",""),
+        # This is a reliability status, NOT the probability that this specific pick wins.
+        if metrics['games']<100 or metrics.get('brier') is None or metrics['brier']>=metrics['baseline_brier']:
+            quality='UNVALIDATED'
+        elif n<15 or metrics['games']<300:
+            quality='LIMITED EVIDENCE'
+        else:
+            quality='PRELIMINARY — NOT TRADE-VALIDATED'
+        candidates.append({"model confidence":quality,"matchup":row.get("event",""),"selection":row.get("title",""),
             "ticker":row["ticker"],"YES ask":round(float(ask),3),
             "heuristic probability":round(p,3),"estimated edge after assumed fee":round(edge,3),
             "games per team (min)":n,"venue evidence":venue_label,"rest days":rest_label,
