@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-29T18:12:45.969558+00:00",
+  "generated_utc": "2026-10-29T18:20:01.901516+00:00",
   "minimum_probability": 0.75,
   "all_candidates": [
     {
@@ -35,9 +35,9 @@
       "matchup": "Cleveland vs Milwaukee",
       "selection": "Milwaukee wins",
       "ticker": "KXNBAGAME-26OCT31CLEMIL-MIL",
-      "YES ask": 0.27,
+      "YES ask": 0.28,
       "heuristic probability": 0.501,
-      "estimated edge after assumed fee": 0.211,
+      "estimated edge after assumed fee": 0.201,
       "games per team (min)": 16,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "CLE: 2; MIL: 1",
@@ -189,9 +189,9 @@
       "matchup": "Houston vs Dallas",
       "selection": "Dallas wins",
       "ticker": "KXNBAGAME-26OCT30HOUDAL-DAL",
-      "YES ask": 0.39,
+      "YES ask": 0.38,
       "heuristic probability": 0.493,
-      "estimated edge after assumed fee": 0.083,
+      "estimated edge after assumed fee": 0.093,
       "games per team (min)": 15,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "HOU: 0; DAL: 0",
@@ -327,20 +327,6 @@
     {
       "model confidence": "LIMITED EVIDENCE",
       "matchup": "New York vs Philadelphia",
-      "selection": "New York wins",
-      "ticker": "KXNBAGAME-26OCT30NYKPHI-NYK",
-      "YES ask": 0.48,
-      "heuristic probability": 0.47,
-      "estimated edge after assumed fee": -0.03,
-      "games per team (min)": 27,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "NYK: 0; PHI: 1",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
-      "matchup": "New York vs Philadelphia",
       "selection": "Philadelphia wins",
       "ticker": "KXNBAGAME-26OCT30NYKPHI-PHI",
       "YES ask": 0.54,
@@ -363,6 +349,20 @@
       "games per team (min)": 15,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "CHA: 1; WAS: 1",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "New York vs Philadelphia",
+      "selection": "New York wins",
+      "ticker": "KXNBAGAME-26OCT30NYKPHI-NYK",
+      "YES ask": 0.49,
+      "heuristic probability": 0.47,
+      "estimated edge after assumed fee": -0.04,
+      "games per team (min)": 27,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "NYK: 0; PHI: 1",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -396,20 +396,6 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Los Angeles L vs Golden State",
-      "selection": "Los Angeles L wins",
-      "ticker": "KXNBAGAME-26OCT30LALGSW-LAL",
-      "YES ask": 0.54,
-      "heuristic probability": 0.467,
-      "estimated edge after assumed fee": -0.093,
-      "games per team (min)": 19,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "LAL: 0; GSW: 0",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
       "matchup": "Toronto vs Los Angeles L",
       "selection": "Los Angeles L wins",
       "ticker": "KXNBAGAME-26NOV01TORLAL-LAL",
@@ -419,6 +405,20 @@
       "games per team (min)": 22,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "TOR: 3; LAL: 2",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Los Angeles L vs Golden State",
+      "selection": "Los Angeles L wins",
+      "ticker": "KXNBAGAME-26OCT30LALGSW-LAL",
+      "YES ask": 0.55,
+      "heuristic probability": 0.467,
+      "estimated edge after assumed fee": -0.103,
+      "games per team (min)": 19,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "LAL: 0; GSW: 0",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -710,9 +710,9 @@
       "matchup": "Cleveland vs Milwaukee",
       "selection": "Milwaukee wins",
       "ticker": "KXNBAGAME-26OCT31CLEMIL-MIL",
-      "YES ask": 0.27,
+      "YES ask": 0.28,
       "heuristic probability": 0.501,
-      "estimated edge after assumed fee": 0.211,
+      "estimated edge after assumed fee": 0.201,
       "games per team (min)": 16,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "CLE: 2; MIL: 1",
@@ -1026,13 +1026,6 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26OCT30NYKPHI-NYK",
-      "matchup": "New York vs Philadelphia",
-      "status": "NOT VERIFIED",
-      "source": "No authoritative injury/lineup feed configured",
-      "forecast_adjustment": "NONE \u2014 injuries not included"
-    },
-    {
       "ticker": "KXNBAGAME-26OCT30NYKPHI-PHI",
       "matchup": "New York vs Philadelphia",
       "status": "NOT VERIFIED",
@@ -1042,6 +1035,13 @@
     {
       "ticker": "KXNBAGAME-26OCT30CHAWAS-CHA",
       "matchup": "Charlotte vs Washington",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
+      "ticker": "KXNBAGAME-26OCT30NYKPHI-NYK",
+      "matchup": "New York vs Philadelphia",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1061,15 +1061,15 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26OCT30LALGSW-LAL",
-      "matchup": "Los Angeles L vs Golden State",
+      "ticker": "KXNBAGAME-26NOV01TORLAL-LAL",
+      "matchup": "Toronto vs Los Angeles L",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV01TORLAL-LAL",
-      "matchup": "Toronto vs Los Angeles L",
+      "ticker": "KXNBAGAME-26OCT30LALGSW-LAL",
+      "matchup": "Los Angeles L vs Golden State",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
