@@ -1,1 +1,11 @@
 snapshot_utc,ticker,matchup,selection,yes_ask,model_probability,assumed_fee,estimated_edge,game_date,status,winning_team,hypothetical_pnl_per_contract,resolution_note
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT30CHIBOS-CHI,Chicago vs Boston,Chicago wins,0.18,0.48,0.02,0.28,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT31MINSAS-MIN,Minnesota vs San Antonio,Minnesota wins,0.28,0.516,0.02,0.216,2026-10-31,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT30DETBKN-BKN,Detroit vs Brooklyn,Brooklyn wins,0.25,0.48,0.02,0.21,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT29MEMPOR-MEM,Memphis vs Portland,Memphis wins,0.3,0.504,0.02,0.184,2026-10-29,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT31PORUTA-UTA,Portland vs Utah,Utah wins,0.3,0.484,0.02,0.164,2026-10-31,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT31SACMEM-SAC,Sacramento vs Memphis,Sacramento wins,0.29,0.455,0.02,0.145,2026-10-31,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT31CLEMIL-MIL,Cleveland vs Milwaukee,Milwaukee wins,0.34,0.493,0.02,0.133,2026-10-31,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT29SACNOP-SAC,Sacramento vs New Orleans,Sacramento wins,0.33,0.478,0.02,0.128,2026-10-29,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT30LACMIN-LAC,Los Angeles C vs Minnesota,Los Angeles C wins,0.35,0.492,0.02,0.122,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT30HOUDAL-DAL,Houston vs Dallas,Dallas wins,0.34,0.48,0.02,0.12,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked

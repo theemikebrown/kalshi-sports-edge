@@ -1,0 +1,115 @@
+{
+  "generated_utc": "2026-10-29T00:36:16.150131+00:00",
+  "minimum_probability": 0.75,
+  "highest_win_probability": [],
+  "best_estimated_value": [
+    {
+      "matchup": "Chicago vs Boston",
+      "selection": "Chicago wins",
+      "ticker": "KXNBAGAME-26OCT30CHIBOS-CHI",
+      "YES ask": 0.18,
+      "heuristic probability": 0.48,
+      "estimated edge after assumed fee": 0.28,
+      "games per team (min)": 8,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Minnesota vs San Antonio",
+      "selection": "Minnesota wins",
+      "ticker": "KXNBAGAME-26OCT31MINSAS-MIN",
+      "YES ask": 0.28,
+      "heuristic probability": 0.516,
+      "estimated edge after assumed fee": 0.216,
+      "games per team (min)": 9,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Detroit vs Brooklyn",
+      "selection": "Brooklyn wins",
+      "ticker": "KXNBAGAME-26OCT30DETBKN-BKN",
+      "YES ask": 0.25,
+      "heuristic probability": 0.48,
+      "estimated edge after assumed fee": 0.21,
+      "games per team (min)": 8,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Memphis vs Portland",
+      "selection": "Memphis wins",
+      "ticker": "KXNBAGAME-26OCT29MEMPOR-MEM",
+      "YES ask": 0.3,
+      "heuristic probability": 0.504,
+      "estimated edge after assumed fee": 0.184,
+      "games per team (min)": 7,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Portland vs Utah",
+      "selection": "Utah wins",
+      "ticker": "KXNBAGAME-26OCT31PORUTA-UTA",
+      "YES ask": 0.3,
+      "heuristic probability": 0.484,
+      "estimated edge after assumed fee": 0.164,
+      "games per team (min)": 7,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Sacramento vs Memphis",
+      "selection": "Sacramento wins",
+      "ticker": "KXNBAGAME-26OCT31SACMEM-SAC",
+      "YES ask": 0.29,
+      "heuristic probability": 0.455,
+      "estimated edge after assumed fee": 0.145,
+      "games per team (min)": 8,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Cleveland vs Milwaukee",
+      "selection": "Milwaukee wins",
+      "ticker": "KXNBAGAME-26OCT31CLEMIL-MIL",
+      "YES ask": 0.34,
+      "heuristic probability": 0.493,
+      "estimated edge after assumed fee": 0.133,
+      "games per team (min)": 6,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Sacramento vs New Orleans",
+      "selection": "Sacramento wins",
+      "ticker": "KXNBAGAME-26OCT29SACNOP-SAC",
+      "YES ask": 0.33,
+      "heuristic probability": 0.478,
+      "estimated edge after assumed fee": 0.128,
+      "games per team (min)": 7,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Los Angeles C vs Minnesota",
+      "selection": "Los Angeles C wins",
+      "ticker": "KXNBAGAME-26OCT30LACMIN-LAC",
+      "YES ask": 0.35,
+      "heuristic probability": 0.492,
+      "estimated edge after assumed fee": 0.122,
+      "games per team (min)": 6,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "matchup": "Houston vs Dallas",
+      "selection": "Dallas wins",
+      "ticker": "KXNBAGAME-26OCT30HOUDAL-DAL",
+      "YES ask": 0.34,
+      "heuristic probability": 0.48,
+      "estimated edge after assumed fee": 0.12,
+      "games per team (min)": 7,
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    }
+  ],
+  "diagnostics": {
+    "games": 42,
+    "brier": 0.2568926600860648,
+    "accuracy": 0.5,
+    "baseline_brier": 0.25,
+    "failed_dates": 0,
+    "warning": "Not calibrated, no injuries/lineups/rest adjustment; backtest excludes real market prices and fees."
+  }
+}
