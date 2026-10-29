@@ -21,10 +21,12 @@ def audit(rows):
         except (ValueError,KeyError,TypeError): rejected+=1
     n=len(resolved)
     if not n:
-        return {'contracts':0,'status':'NO RESOLVED CONTRACTS','rejected':rejected,'model_brier':None,'market_brier':None,'hypothetical_roi':None,'hypothetical_pnl':None}
+        return {'contracts':0,'status':'NO RESOLVED CONTRACTS','rejected':rejected,'model_brier':None,'market_brier':None,'hypothetical_roi':None,'hypothetical_pnl':None,'model_brier_advantage':None,'model_wins_brier':None}
     cost=sum(a+f for _,a,f,_ in resolved)
     return {'contracts':n,'status':'PRELIMINARY — OBSERVED ASK ONLY' if n>=100 else 'INSUFFICIENT PRICE HISTORY (<100 CONTRACTS)',
         'rejected':rejected,'model_brier':sum((p-y)**2 for p,_,_,y in resolved)/n,
         'market_brier':sum((a-y)**2 for _,a,_,y in resolved)/n,
         'hypothetical_pnl':sum(y-a-f for _,a,f,y in resolved),
-        'hypothetical_roi':sum(y-a-f for _,a,f,y in resolved)/cost if cost else None}
+        'hypothetical_roi':sum(y-a-f for _,a,f,y in resolved)/cost if cost else None,
+        'model_brier_advantage':sum((a-y)**2-(p-y)**2 for p,a,_,y in resolved)/n,
+        'model_wins_brier':sum((p-y)**2 for p,_,_,y in resolved)<sum((a-y)**2 for _,a,_,y in resolved)}
