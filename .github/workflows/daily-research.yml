@@ -1,0 +1,35 @@
+name: Daily NBA research
+on:
+  schedule:
+    # 15:15 UTC, generally morning in California. GitHub may delay scheduled runs.
+    - cron: '15 15 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: nba-research
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Capture snapshots and resolve games
+        run: python cloud_job.py
+      - name: Commit public research data and site
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/nba_research_snapshots.csv data/nba_latest_rankings.json docs/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update daily NBA research snapshots'
+            git push
+          fi
