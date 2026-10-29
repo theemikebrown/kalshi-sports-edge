@@ -11,3 +11,4 @@ snapshot_utc,ticker,matchup,selection,yes_ask,model_probability,assumed_fee,esti
 2026-10-29 00:36:16 UTC,KXNBAGAME-26OCT30HOUDAL-DAL,Houston vs Dallas,Dallas wins,0.34,0.48,0.02,0.12,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-10-29 01:36:08 UTC,KXNBAGAME-26OCT30ORLTOR-ORL,Orlando vs Toronto,Orlando wins,0.38,0.482,0.02,0.082,2026-10-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-10-29 01:52:48 UTC,KXNBAGAME-26OCT31PHICHA-CHA,Philadelphia vs Charlotte,Charlotte wins,0.45,0.539,0.02,0.069,2026-10-31,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-10-29 18:00:41 UTC,KXNBAGAME-26NOV01BOSORL-ORL,Boston vs Orlando,Orlando wins,0.36,0.52,0.02,0.14,2026-11-01,PENDING,,,Game outcome pending; Kalshi settlement not checked
