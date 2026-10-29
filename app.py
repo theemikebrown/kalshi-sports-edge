@@ -113,6 +113,7 @@ with scanner:
                 if ranked:
                     top=pd.DataFrame(ranked[:10])
                     st.dataframe(top,hide_index=True,use_container_width=True)
+                    st.warning('Model reliability: '+str(diagnostics.get('model_reliability','UNVERIFIED'))+'. Venue evidence is shown where available; rest days are descriptive, not validated predictive adjustments. No historical Kalshi price backtest.')
                     high_probability, best_value = split_rankings(ranked,minimum_probability=.75,limit=10)
                     st.subheader('🎯 Highest estimated win probability (75% minimum)')
                     st.caption('Experimental Elo probabilities, not reliable win rates. High probability does not imply positive expected value.')

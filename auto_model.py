@@ -84,6 +84,45 @@ def parse_teams(ticker):
         return (part[:3],part[3:]) if len(part)==6 else None
     except (IndexError,TypeError): return None
 
+def upcoming_context(rows, games):
+    """Map ESPN scheduled games to known home/away teams and rest, if verifiable."""
+    from research_tracker import game_date_from_ticker
+    last={}
+    for date,home,away,_,_ in games:
+        try: d=datetime.fromisoformat(date.replace('Z','+00:00')).date()
+        except ValueError: continue
+        for t in (home,away): last[t]=max(d,last.get(t,d))
+    dates=set(filter(None,(game_date_from_ticker(r.get('ticker','')) for r in rows)))
+    context={}
+    for day in sorted(dates):
+        try:
+            url=ESPN+'?'+urlencode({'dates':day.replace('-','')})
+            with urlopen(Request(url,headers={'User-Agent':'Mozilla/5.0'}),timeout=12) as resp: data=json.load(resp)
+            for event in data.get('events',[]):
+                for comp in event.get('competitions',[]):
+                    teams=comp.get('competitors',[])
+                    if len(teams)!=2: continue
+                    home=next((x for x in teams if x.get('homeAway')=='home'),None)
+                    away=next((x for x in teams if x.get('homeAway')=='away'),None)
+                    if not home or not away: continue
+                    h=_norm(home.get('team',{}).get('abbreviation',''))
+                    a=_norm(away.get('team',{}).get('abbreviation',''))
+                    if h and a:
+                        d=datetime.fromisoformat(day).date()
+                        rest={t:max(0,(d-last[t]).days-1) if t in last else None for t in (h,a)}
+                        context[(day,frozenset((h,a)))]=(h,a,rest)
+        except Exception: continue
+    return context
+
+def confidence(metrics):
+    """Gate model outputs by sample size and proper scoring against 50/50 baseline."""
+    n=metrics.get('games',0)
+    b=metrics.get('brier')
+    base=metrics.get('baseline_brier')
+    if n<100: return 'INSUFFICIENT VALIDATION (<100 games)'
+    if b is None or base is None or b>=base: return 'FAILED 50/50 BASELINE'
+    return 'PRELIMINARY ONLY — NO PRICE BACKTEST'
+
 def ranking(rows,fee,minimum_games=5):
     """Returns ranked exploratory candidates, game count, and validation metadata."""
     end=datetime.now(timezone.utc)
@@ -95,6 +134,9 @@ def ranking(rows,fee,minimum_games=5):
     metrics=validation(preds)
     metrics["failed_dates"]=len(failures)
     metrics["warning"]="Not calibrated, no injuries/lineups/rest adjustment; backtest excludes real market prices and fees."
+    metrics['model_reliability']=confidence(metrics)
+    metrics['validation_note']='A better Brier score is not proof of tradable edge; no historical Kalshi quotes or actual fills were tested.'
+    schedule=upcoming_context(rows,games)
     candidates=[]
     for row in rows:
         teams=parse_teams(row.get("ticker",""))
@@ -103,7 +145,20 @@ def ranking(rows,fee,minimum_games=5):
         n=min(played[first],played[second])
         if n<minimum_games: continue
         # Kalshi ticker encodes two teams but not home venue. Neutral probability only.
-        p=prob(elo,first,second,venue=False)
+        from research_tracker import game_date_from_ticker
+        day=game_date_from_ticker(row.get('ticker',''))
+        ctx=schedule.get((day,frozenset((first,second))))
+        if ctx:
+            home,away,rest=ctx
+            p=prob(elo,home,away,venue=True)
+            # No invented injury or lineup effects. Rest is descriptive only until validated.
+            if first!=home: p=1-p
+            venue_label='ESPN-confirmed home court'
+            rest_label=f'{first}: {rest.get(first)}; {second}: {rest.get(second)}'
+        else:
+            p=prob(elo,first,second,venue=False)
+            venue_label='Unknown venue — neutral assumption'
+            rest_label='Unknown'
         # Conservative shrinkage for limited history; not empirically calibrated.
         p=.5+(p-.5)*n/(n+25)
         selected=row["ticker"].split("-")[-1]
@@ -115,6 +170,7 @@ def ranking(rows,fee,minimum_games=5):
         candidates.append({"matchup":row.get("event",""),"selection":row.get("title",""),
             "ticker":row["ticker"],"YES ask":round(float(ask),3),
             "heuristic probability":round(p,3),"estimated edge after assumed fee":round(edge,3),
-            "games per team (min)":n,"signal":"EXPLORATORY — NOT VALIDATED"})
+            "games per team (min)":n,"venue evidence":venue_label,"rest days":rest_label,
+            "model reliability":metrics['model_reliability'],"signal":"EXPLORATORY — NOT VALIDATED"})
     candidates.sort(key=lambda r:r["estimated edge after assumed fee"],reverse=True)
     return candidates,len(games),metrics
