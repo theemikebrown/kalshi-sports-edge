@@ -82,3 +82,13 @@ snapshot_utc,ticker,matchup,selection,yes_ask,model_probability,assumed_fee,esti
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV07WASOKC-WAS,Washington vs Oklahoma City,Washington wins,0.26,0.442,0.02,0.162,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV07HOUPHX-PHX,Houston vs Phoenix,Phoenix wins,0.29,0.465,0.02,0.155,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV08UTAMIN-UTA,Utah vs Minnesota,Utah wins,0.27,0.428,0.02,0.138,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.1,0.47,0.02,0.35,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV08PHICHI-CHI,Philadelphia vs Chicago,Chicago wins,0.18,0.482,0.02,0.282,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.23,0.474,0.02,0.224,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV08BOSMIL-MIL,Boston vs Milwaukee,Milwaukee wins,0.24,0.468,0.02,0.208,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV08MIASAC-SAC,Miami vs Sacramento,Sacramento wins,0.27,0.496,0.02,0.206,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV07WASOKC-WAS,Washington vs Oklahoma City,Washington wins,0.23,0.448,0.02,0.198,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV08UTAMIN-UTA,Utah vs Minnesota,Utah wins,0.21,0.428,0.02,0.198,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV07DENIND-IND,Denver vs Indiana,Indiana wins,0.3,0.495,0.02,0.175,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06WASATL-WAS,Washington vs Atlanta,Washington wins,0.27,0.449,0.02,0.159,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV09WASDET-WAS,Washington vs Detroit,Washington wins,0.26,0.434,0.02,0.154,2026-11-09,PENDING,,,Game outcome pending; Kalshi settlement not checked
