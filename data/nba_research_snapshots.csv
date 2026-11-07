@@ -52,7 +52,7 @@ snapshot_utc,ticker,matchup,selection,yes_ask,model_probability,assumed_fee,esti
 2026-11-02 23:05:58 UTC,KXNBAGAME-26NOV04DALSAS-DAL,Dallas vs San Antonio,Dallas wins,0.22,0.451,0.02,0.211,2026-11-04,LOSS,SAS,-0.2400,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-02 23:05:58 UTC,KXNBAGAME-26NOV02MILMIN-MIL,Milwaukee vs Minnesota,Milwaukee wins,0.22,0.426,0.02,0.186,2026-11-02,LOSS,MIN,-0.2400,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-02 23:05:58 UTC,KXNBAGAME-26NOV02SACDAL-SAC,Sacramento vs Dallas,Sacramento wins,0.25,0.426,0.02,0.156,2026-11-02,WIN,SAC,0.7300,ESPN final score only; NOT verified Kalshi settlement or executable fill
-2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.18,0.475,0.02,0.275,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.18,0.475,0.02,0.275,2026-11-06,LOSS,SAS,-0.2000,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV04LALSAC-SAC,Los Angeles L vs Sacramento,Sacramento wins,0.19,0.481,0.02,0.271,2026-11-04,LOSS,LAL,-0.2100,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV04MILBOS-MIL,Milwaukee vs Boston,Milwaukee wins,0.13,0.404,0.02,0.254,2026-11-04,LOSS,BOS,-0.1500,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV04CHINYK-CHI,Chicago vs New York,Chicago wins,0.18,0.434,0.02,0.234,2026-11-04,LOSS,NYK,-0.2000,ESPN final score only; NOT verified Kalshi settlement or executable fill
@@ -60,35 +60,45 @@ snapshot_utc,ticker,matchup,selection,yes_ask,model_probability,assumed_fee,esti
 2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV04MIALAC-LAC,Miami vs Los Angeles C,Los Angeles C wins,0.34,0.522,0.02,0.162,2026-11-04,LOSS,MIA,-0.3600,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV04MINHOU-MIN,Minnesota vs Houston,Minnesota wins,0.28,0.438,0.02,0.138,2026-11-04,WIN,MIN,0.7000,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV04INDMEM-IND,Indiana vs Memphis,Indiana wins,0.27,0.413,0.02,0.123,2026-11-04,WIN,IND,0.7100,ESPN final score only; NOT verified Kalshi settlement or executable fill
-2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.36,0.479,0.02,0.099,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.36,0.479,0.02,0.099,2026-11-06,LOSS,BOS,-0.3800,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-03 20:58:21 UTC,KXNBAGAME-26NOV04UTANOP-UTA,Utah vs New Orleans,Utah wins,0.33,0.445,0.02,0.095,2026-11-04,LOSS,NOP,-0.3500,ESPN final score only; NOT verified Kalshi settlement or executable fill
-2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.14,0.478,0.02,0.318,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.14,0.478,0.02,0.318,2026-11-06,LOSS,SAS,-0.1600,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV04LALSAC-SAC,Los Angeles L vs Sacramento,Sacramento wins,0.17,0.483,0.02,0.293,2026-11-04,LOSS,LAL,-0.1900,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV04CHINYK-CHI,Chicago vs New York,Chicago wins,0.17,0.435,0.02,0.245,2026-11-04,LOSS,NYK,-0.1900,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV04DALSAS-DAL,Dallas vs San Antonio,Dallas wins,0.18,0.444,0.02,0.244,2026-11-04,LOSS,SAS,-0.2000,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV04MILBOS-MIL,Milwaukee vs Boston,Milwaukee wins,0.18,0.411,0.02,0.211,2026-11-04,LOSS,BOS,-0.2000,ESPN final score only; NOT verified Kalshi settlement or executable fill
-2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV06TORMIL-MIL,Toronto vs Milwaukee,Milwaukee wins,0.29,0.502,0.02,0.192,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV06TORMIL-MIL,Toronto vs Milwaukee,Milwaukee wins,0.29,0.502,0.02,0.192,2026-11-06,LOSS,TOR,-0.3100,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV07DENIND-IND,Denver vs Indiana,Indiana wins,0.32,0.492,0.02,0.152,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV04MIALAC-LAC,Miami vs Los Angeles C,Los Angeles C wins,0.36,0.517,0.02,0.137,2026-11-04,LOSS,MIA,-0.3800,ESPN final score only; NOT verified Kalshi settlement or executable fill
-2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.33,0.484,0.02,0.134,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.33,0.484,0.02,0.134,2026-11-06,LOSS,BOS,-0.3500,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-04 21:16:30 UTC,KXNBAGAME-26NOV07WASOKC-WAS,Washington vs Oklahoma City,Washington wins,0.3,0.452,0.02,0.132,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
-2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.13,0.47,0.02,0.32,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.13,0.47,0.02,0.32,2026-11-06,LOSS,SAS,-0.1500,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV08PHICHI-CHI,Philadelphia vs Chicago,Chicago wins,0.25,0.485,0.02,0.215,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV08BOSMIL-MIL,Boston vs Milwaukee,Milwaukee wins,0.24,0.47,0.02,0.21,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
-2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.25,0.476,0.02,0.206,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.25,0.476,0.02,0.206,2026-11-06,LOSS,BOS,-0.2700,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV08MIASAC-SAC,Miami vs Sacramento,Sacramento wins,0.3,0.494,0.02,0.174,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV07DENIND-IND,Denver vs Indiana,Indiana wins,0.31,0.497,0.02,0.167,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
-2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV06TORMIL-MIL,Toronto vs Milwaukee,Milwaukee wins,0.32,0.506,0.02,0.166,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV06TORMIL-MIL,Toronto vs Milwaukee,Milwaukee wins,0.32,0.506,0.02,0.166,2026-11-06,LOSS,TOR,-0.3400,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV07WASOKC-WAS,Washington vs Oklahoma City,Washington wins,0.26,0.442,0.02,0.162,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV07HOUPHX-PHX,Houston vs Phoenix,Phoenix wins,0.29,0.465,0.02,0.155,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-05 21:27:49 UTC,KXNBAGAME-26NOV08UTAMIN-UTA,Utah vs Minnesota,Utah wins,0.27,0.428,0.02,0.138,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
-2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.1,0.47,0.02,0.35,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06SASSAC-SAC,San Antonio vs Sacramento,Sacramento wins,0.1,0.47,0.02,0.35,2026-11-06,LOSS,SAS,-0.1200,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV08PHICHI-CHI,Philadelphia vs Chicago,Chicago wins,0.18,0.482,0.02,0.282,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
-2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.23,0.474,0.02,0.224,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06BOSCHA-CHA,Boston vs Charlotte,Charlotte wins,0.23,0.474,0.02,0.224,2026-11-06,LOSS,BOS,-0.2500,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV08BOSMIL-MIL,Boston vs Milwaukee,Milwaukee wins,0.24,0.468,0.02,0.208,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV08MIASAC-SAC,Miami vs Sacramento,Sacramento wins,0.27,0.496,0.02,0.206,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV07WASOKC-WAS,Washington vs Oklahoma City,Washington wins,0.23,0.448,0.02,0.198,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV08UTAMIN-UTA,Utah vs Minnesota,Utah wins,0.21,0.428,0.02,0.198,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV07DENIND-IND,Denver vs Indiana,Indiana wins,0.3,0.495,0.02,0.175,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
-2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06WASATL-WAS,Washington vs Atlanta,Washington wins,0.27,0.449,0.02,0.159,2026-11-06,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV06WASATL-WAS,Washington vs Atlanta,Washington wins,0.27,0.449,0.02,0.159,2026-11-06,LOSS,ATL,-0.2900,ESPN final score only; NOT verified Kalshi settlement or executable fill
 2026-11-06 20:51:41 UTC,KXNBAGAME-26NOV09WASDET-WAS,Washington vs Detroit,Washington wins,0.26,0.434,0.02,0.154,2026-11-09,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV08BOSMIL-MIL,Boston vs Milwaukee,Milwaukee wins,0.17,0.458,0.02,0.268,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV08PHICHI-CHI,Philadelphia vs Chicago,Chicago wins,0.22,0.493,0.02,0.253,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV07WASOKC-WAS,Washington vs Oklahoma City,Washington wins,0.17,0.44,0.02,0.25,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV08MIASAC-SAC,Miami vs Sacramento,Sacramento wins,0.23,0.492,0.02,0.242,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV07DENIND-IND,Denver vs Indiana,Indiana wins,0.26,0.5,0.02,0.22,2026-11-07,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV10MILNYK-MIL,Milwaukee vs New York,Milwaukee wins,0.18,0.418,0.02,0.218,2026-11-10,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV08UTAMIN-UTA,Utah vs Minnesota,Utah wins,0.2,0.421,0.02,0.201,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV09NOPGSW-NOP,New Orleans vs Golden State,New Orleans wins,0.24,0.449,0.02,0.189,2026-11-09,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV09SASPHX-PHX,San Antonio vs Phoenix,Phoenix wins,0.27,0.476,0.02,0.186,2026-11-09,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-07 19:23:27 UTC,KXNBAGAME-26NOV08BKNDAL-BKN,Brooklyn vs Dallas,Brooklyn wins,0.26,0.463,0.02,0.183,2026-11-08,PENDING,,,Game outcome pending; Kalshi settlement not checked
