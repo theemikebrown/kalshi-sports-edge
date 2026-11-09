@@ -16,22 +16,60 @@ let best=null,seen=0,limit=150000,stopped=false;let sorted=[...input].sort((a,b)
 if(orig){html+=`<h3>Original (${original.length} legs)</h3>`;if(sameGroup(original)){html+='<p class="bad">Correlated legs detected: no defensible combined win probability or expected value can be calculated from individual probabilities alone.</p>'}else{html+=`<p>Independent-leg estimate: <strong>${pct(orig.p)}</strong> · ${quoted>0?'User-supplied quoted':'Illustrative'} payout: <strong>${money(orig.pay)}</strong> · Expected net: <strong>${money(orig.ev)}</strong></p>`}}if(best){html+=`<h3>Highest-ranked eligible set (${best.combo.length} legs)</h3><p class="metrics">${pct(best.m.p)} estimated chance</p><p>Illustrative payout: ${money(best.m.pay)} · Illustrative expected net: ${money(best.m.ev)} · Break-even chance: ${pct(best.m.breakEven)}</p><ol>${best.combo.map(x=>`<li>${esc(x.name)} — ${pct(x.prob)} individual estimate; YES ${money(x.price)}</li>`).join('')}</ol><p class="warn">This ranking assumes independent legs and accurate supplied probabilities. The payout is not an executable Kalshi quote. Correlations across different games or players may still exist. No recommendation is validated as profitable.</p>`}else{html+='<p class="bad">No eligible combination met the specified constraints. No trade is a valid result.</p>'}html+=`<p class="small muted">Evaluated ${seen.toLocaleString()} candidate combinations${stopped?' (search capped; result may not be globally optimal)':''}. Original verified quote, if supplied, is never applied to a changed combination.</p>`;out.innerHTML=html}
 // Conservative NBA pick parser: detects common market phrases, retains original text for review.
 const nbaTeams=['Atlanta Hawks','Boston Celtics','Brooklyn Nets','Charlotte Hornets','Chicago Bulls','Cleveland Cavaliers','Dallas Mavericks','Denver Nuggets','Detroit Pistons','Golden State Warriors','Houston Rockets','Indiana Pacers','Los Angeles Clippers','LA Clippers','Los Angeles Lakers','Memphis Grizzlies','Miami Heat','Milwaukee Bucks','Minnesota Timberwolves','New Orleans Pelicans','New York Knicks','Oklahoma City Thunder','Orlando Magic','Philadelphia 76ers','Phoenix Suns','Portland Trail Blazers','Sacramento Kings','San Antonio Spurs','Toronto Raptors','Utah Jazz','Washington Wizards'];
-function extractNbaPicks(raw){let lines=raw.split(/\r?\n/).map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean), found=[],seen=new Set();
-const stat=/(?:points?|rebounds?|assists?|three[ -]?pointers?|3[ -]?pointers?|threes?|steals?|blocks?)/i;
-for(let i=0;i<lines.length;i++){let line=lines[i];if(line.length<5||line.length>200)continue;let context=lines.slice(Math.max(0,i-2),Math.min(lines.length,i+3)).join(' ');
-let nbaTeam=nbaTeams.find(t=>context.toLowerCase().includes(t.toLowerCase()));
-let prop=line.match(/(?:^|\b)([A-Z][a-zA-Z.'-]+(?:\s+[A-Z][a-zA-Z.'-]+){1,3})\s+(?:to (?:score|record|have|get)\s+)?(\d{1,3})\s*\+?\s*(points?|rebounds?|assists?|three[ -]?pointers?|3[ -]?pointers?|threes?|steals?|blocks?)\b/i);
-let reversed=line.match(/(?:^|\b)(\d{1,3})\s*\+\s*(points?|rebounds?|assists?|three[ -]?pointers?|3[ -]?pointers?|threes?|steals?|blocks?)\s+(?:for|by)\s+([A-Z][a-zA-Z.'-]+(?:\s+[A-Z][a-zA-Z.'-]+){1,3})/i);
-let pick=null;
-if(prop){pick=`${prop[1]} — ${prop[2]}+ ${prop[3]}`}
-else if(reversed){pick=`${reversed[3]} — ${reversed[1]}+ ${reversed[2]}`}
-else {let team=nbaTeams.find(t=>line.toLowerCase().includes(t.toLowerCase()));if(team&&/(?:to win|winner|moneyline|wins?\b)/i.test(line))pick=`${team} — to win`}
-if(pick){let direction=/\bNO\b/i.test(line)?'NO — ':'';let label=direction+pick;let key=label.toLowerCase();if(!seen.has(key)){seen.add(key);found.push({name:label,group:nbaTeam||'',chosen:true})}}}
-return found;
+function extractNbaPicks(raw){
+ const lines=raw.split(/\r?\n/).map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean);
+ const found=[],seen=new Set();let sport='unknown',game='';
+ const nbaAliases={"ORL":"Orlando Magic","WAS":"Washington Wizards","BOS":"Boston Celtics","LAL":"Los Angeles Lakers","LAC":"Los Angeles Clippers","NYK":"New York Knicks","GSW":"Golden State Warriors","PHI":"Philadelphia 76ers","OKC":"Oklahoma City Thunder","SAS":"San Antonio Spurs","NOP":"New Orleans Pelicans","POR":"Portland Trail Blazers","UTA":"Utah Jazz","MEM":"Memphis Grizzlies","MIN":"Minnesota Timberwolves","MIL":"Milwaukee Bucks","CLE":"Cleveland Cavaliers","DAL":"Dallas Mavericks","DEN":"Denver Nuggets","DET":"Detroit Pistons","HOU":"Houston Rockets","IND":"Indiana Pacers","MIA":"Miami Heat","ATL":"Atlanta Hawks","BKN":"Brooklyn Nets","CHA":"Charlotte Hornets","CHI":"Chicago Bulls","SAC":"Sacramento Kings","TOR":"Toronto Raptors","PHX":"Phoenix Suns"};
+ const aliases=Object.entries(nbaAliases).flatMap(([abbr,full])=>[[full,full],[full.split(' ').slice(-1)[0],full],[abbr,full]]).sort((a,b)=>b[0].length-a[0].length);
+ const sportLine=/^(?:[♧♢♤♙🏀🏈\W]*)\s*(NBA|NFL|NHL|MLB|College Basketball(?:\s*\(M\))?|NCAAB|NCAA Basketball)\s*$/i;
+ const matchTeam=text=>{for(const [alias,full] of aliases){let pattern=new RegExp('(?:^|[^A-Za-z])'+alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'(?:$|[^A-Za-z])','i');if(pattern.test(text))return full}return null};
+ const statPattern=/(points?|rebounds?|assists?|3(?:-?pointers?|pt(?: field goals?)?)|three[ -]?pointers?|threes?|steals?|blocks?)/i;
+ for(let i=0;i<lines.length;i++){
+  let line=lines[i].replace(/^[✔✓✕✖❌✅🔴🟢●◯\s]+/u,'').trim();
+  let section=line.match(sportLine);if(section){sport=section[1].toUpperCase()==='NBA'?'nba':'other';game='';continue}
+  if(/^(position closed|max payout|history|post|share|copy|close|\d{1,2}:\d{2})\b/i.test(line))continue;
+  if(sport!=='nba')continue;
+  if(/\s+(?:vs\.?|at|@)\s+/i.test(line)&&!/(?:points?|rebounds?|assists?|interceptions?)/i.test(line)){game=line;continue}
+  const team=matchTeam(line);
+  let pick=null;
+  if(team&&/\b(?:to win|wins?|moneyline)\b/i.test(line))pick=team+' — to win';
+  // Player props require a recognizable player name and a numerical threshold.
+  const m=line.match(/([A-Za-z][A-Za-z.'-]+(?:\s+[A-Za-z][A-Za-z.'-]+){1,2})\s*:\s*(\d{1,3})(\+|\s+or more|\s+or less)?\s*(points?|rebounds?|assists?|3(?:-?pointers?|pt)|three[ -]?pointers?|threes?|steals?|blocks?)\b/i)
+   ||line.match(/([A-Za-z][A-Za-z.'-]+(?:\s+[A-Za-z][A-Za-z.'-]+){1,2})\s+(?:to (?:score|record|have|get)\s+)?(\d{1,3})(\+|\s+or more|\s+or less)?\s*(points?|rebounds?|assists?|3(?:-?pointers?|pt)|three[ -]?pointers?|threes?|steals?|blocks?)\b/i);
+  if(m&&!pick){let name=m[1].replace(/^No\s*[·-]?\s*/i,'').trim();if(!/^(?:wins? by|over|under|more than)$/i.test(name))pick=name+' — '+m[2]+(m[3]||'+')+' '+m[4]}
+  if(!pick)continue;
+  const no=/^\s*(?:no\s*[·:—-]|no\b)/i.test(line);
+  const label=(no?'NO — ':'')+pick;let key=label.toLowerCase();if(seen.has(key))continue;seen.add(key);
+  found.push({name:label,group:game||'',chosen:true});
+ }
+ return found;
 }
-$('parse').onclick=()=>{let picks=extractNbaPicks($('ocr-text').value);if(!picks.length){$('parse-status').textContent='No confidently recognizable NBA selections. Please correct the OCR text or enter picks manually. No guesses were added.';return}rows.replaceChildren();picks.forEach(addRow);$('parse-status').textContent=`Identified ${picks.length} possible NBA selections. Check every player, threshold, YES/NO direction and game ID. Probabilities and prices are intentionally blank.`;};
+function importPicks(){const picks=extractNbaPicks($('ocr-text').value);if(!picks.length){$('parse-status').textContent='No recognizable NBA selections found. OCR may have missed the selection text, or the screenshot has no NBA picks. Try a clearer screenshot. No picks were guessed.';return 0}
+ rows.replaceChildren();picks.forEach(addRow);$('parse-status').textContent=`Imported ${picks.length} possible NBA selection(s). Review every name and direction. Missing probabilities and prices remain blank; this is NOT a validated forecast.`;return picks.length;}
+$('parse').onclick=importPicks;
 $('add').onclick=()=>addRow();$('analyze').onclick=analyze;
 $('load').onclick=async()=>{try{let r=await fetch('../data/nba_latest_rankings.json');if(!r.ok)throw Error('File not found');let d=await r.json();let items=(d.all_candidates||[]).filter(x=>x.ticker&&Number(x['heuristic probability'])>0&&Number(x['YES ask'])>0).slice(0,35);if(!items.length)throw Error('No candidates');rows.replaceChildren();for(let x of items){let match=String(x.ticker).match(/^KXNBAGAME-([^\-]+)-/);addRow({name:x.selection||x.ticker,group:match?match[1]:x.ticker,prob:(Number(x['heuristic probability'])*100).toFixed(1),price:x['YES ask'],chosen:false})}$('ocr-status').textContent=`Loaded ${items.length} PRELIMINARY NBA game-winner candidates. Not player props; unvalidated estimates.`}catch(e){$('ocr-status').textContent='Unable to load game-winner candidates: '+e.message}};
-$('ocr').onclick=async()=>{let f=$('screenshot').files[0];if(!f){$('ocr-status').textContent='Choose a screenshot first.';return}let button=$('ocr');button.disabled=true;$('ocr-status').textContent='Loading optional browser OCR…';try{if(!window.Tesseract){await new Promise((resolve,reject)=>{let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';s.onload=resolve;s.onerror=()=>reject(Error('OCR library could not load'));document.head.append(s)})}$('ocr-status').textContent='Reading image…';let bitmap=await createImageBitmap(f);let canvas=document.createElement('canvas');let scale=Math.max(1,Math.min(3,1800/bitmap.width));canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);let ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);let pixels=ctx.getImageData(0,0,canvas.width,canvas.height);for(let i=0;i<pixels.data.length;i+=4){let lum=.2126*pixels.data[i]+.7152*pixels.data[i+1]+.0722*pixels.data[i+2];let value=lum>130?255:0;pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=value;}ctx.putImageData(pixels,0,0);let result=await Tesseract.recognize(canvas,'eng');$('ocr-text').value=result.data.text;$('ocr-status').textContent='Text extracted. Click Identify NBA selections from text, then review the results. OCR can make mistakes.'}catch(e){$('ocr-status').textContent='OCR unavailable: '+e.message+'. You can enter picks manually.'}finally{button.disabled=false}};
+$('ocr').onclick=async()=>{
+ const f=$('screenshot').files[0];if(!f){$('ocr-status').textContent='Choose a screenshot first.';return}
+ const button=$('ocr');button.disabled=true;$('ocr-status').textContent='Loading screenshot reader…';
+ try{
+  if(!window.Tesseract){await new Promise((resolve,reject)=>{let s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';s.onload=resolve;s.onerror=()=>reject(Error('OCR library could not load'));document.head.append(s)})}
+  const bitmap=await createImageBitmap(f),scale=Math.min(3,Math.max(1,2000/bitmap.width));
+  const canvas=document.createElement('canvas');canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);
+  $('ocr-status').textContent='Reading screenshot (original colors)…';
+  let first=await Tesseract.recognize(canvas,'eng');let text=first.data.text||'';
+  // Try a second pass with increased contrast only if first pass misses the NBA section or picks.
+  if(!extractNbaPicks(text).length){$('ocr-status').textContent='Trying enhanced contrast…';
+   const data=ctx.getImageData(0,0,canvas.width,canvas.height);
+   for(let i=0;i<data.data.length;i+=4){let y=.2126*data.data[i]+.7152*data.data[i+1]+.0722*data.data[i+2];let v=y>105?255:0;data.data[i]=data.data[i+1]=data.data[i+2]=v}
+   ctx.putImageData(data,0,0);let second=await Tesseract.recognize(canvas,'eng');
+   if(extractNbaPicks(second.data.text||'').length>extractNbaPicks(text).length)text=second.data.text;
+  }
+  $('ocr-text').value=text;
+  const count=importPicks();$('ocr-status').textContent=count?`Screenshot read; ${count} NBA pick(s) imported for review.`:'Screenshot read, but no NBA selections were identified confidently. Review the extracted text.';
+ }catch(e){$('ocr-status').textContent='Screenshot recognition unavailable: '+e.message+'. You can retry with a clearer image.'}
+ finally{button.disabled=false}
+};
 addRow();addRow();
 </script></main></body></html>
