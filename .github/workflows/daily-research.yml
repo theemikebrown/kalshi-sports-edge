@@ -29,7 +29,7 @@ jobs:
       - name: Update NBA player statistics
         run: python nba_data_sync.py 
       - name: Commit public research data and site
-        run:  
+        run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/nba_research_snapshots.csv data/nba_latest_rankings.json docs/index.html data/nba_player_game_logs.csv
@@ -37,3 +37,4 @@ jobs:
             git commit -m 'Update daily NBA research snapshots'
             git push
           fi
+
