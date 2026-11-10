@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-09T23:46:14.520677+00:00",
+  "generated_utc": "2026-11-10T00:52:09.465706+00:00",
   "minimum_probability": 0.75,
   "all_candidates": [
     {
@@ -7,9 +7,9 @@
       "matchup": "San Antonio vs Chicago",
       "selection": "Chicago wins",
       "ticker": "KXNBAGAME-26NOV11SASCHI-CHI",
-      "YES ask": 0.15,
+      "YES ask": 0.14,
       "heuristic probability": 0.478,
-      "estimated edge after assumed fee": 0.308,
+      "estimated edge after assumed fee": 0.318,
       "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "SAS: 2; CHI: 2",
@@ -32,29 +32,29 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Oklahoma City vs Los Angeles C",
-      "selection": "Los Angeles C wins",
-      "ticker": "KXNBAGAME-26NOV13OKCLAC-LAC",
-      "YES ask": 0.18,
-      "heuristic probability": 0.482,
-      "estimated edge after assumed fee": 0.282,
-      "games per team (min)": 13,
+      "matchup": "Miami vs Utah",
+      "selection": "Utah wins",
+      "ticker": "KXNBAGAME-26NOV10MIAUTA-UTA",
+      "YES ask": 0.22,
+      "heuristic probability": 0.511,
+      "estimated edge after assumed fee": 0.271,
+      "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "OKC: 4; LAC: 3",
+      "rest days": "MIA: 0; UTA: 0",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Los Angeles L vs Milwaukee",
-      "selection": "Milwaukee wins",
-      "ticker": "KXNBAGAME-26NOV11LALMIL-MIL",
-      "YES ask": 0.19,
-      "heuristic probability": 0.469,
-      "estimated edge after assumed fee": 0.259,
-      "games per team (min)": 15,
+      "matchup": "Oklahoma City vs Los Angeles C",
+      "selection": "Los Angeles C wins",
+      "ticker": "KXNBAGAME-26NOV13OKCLAC-LAC",
+      "YES ask": 0.21,
+      "heuristic probability": 0.482,
+      "estimated edge after assumed fee": 0.252,
+      "games per team (min)": 13,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "LAL: 2; MIL: 1",
+      "rest days": "OKC: 4; LAC: 3",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -74,15 +74,29 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Miami vs Utah",
-      "selection": "Utah wins",
-      "ticker": "KXNBAGAME-26NOV10MIAUTA-UTA",
-      "YES ask": 0.26,
-      "heuristic probability": 0.511,
-      "estimated edge after assumed fee": 0.231,
+      "matchup": "Los Angeles L vs Milwaukee",
+      "selection": "Milwaukee wins",
+      "ticker": "KXNBAGAME-26NOV11LALMIL-MIL",
+      "YES ask": 0.21,
+      "heuristic probability": 0.469,
+      "estimated edge after assumed fee": 0.239,
+      "games per team (min)": 15,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "LAL: 2; MIL: 1",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Detroit vs Washington",
+      "selection": "Washington wins",
+      "ticker": "KXNBAGAME-26NOV12DETWAS-WAS",
+      "YES ask": 0.27,
+      "heuristic probability": 0.506,
+      "estimated edge after assumed fee": 0.216,
       "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "MIA: 0; UTA: 0",
+      "rest days": "DET: 3; WAS: 3",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -102,20 +116,6 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Detroit vs Washington",
-      "selection": "Washington wins",
-      "ticker": "KXNBAGAME-26NOV12DETWAS-WAS",
-      "YES ask": 0.28,
-      "heuristic probability": 0.506,
-      "estimated edge after assumed fee": 0.206,
-      "games per team (min)": 14,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "DET: 3; WAS: 3",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
       "matchup": "Orlando vs Sacramento",
       "selection": "Sacramento wins",
       "ticker": "KXNBAGAME-26NOV10ORLSAC-SAC",
@@ -130,15 +130,15 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Portland vs Sacramento",
-      "selection": "Sacramento wins",
-      "ticker": "KXNBAGAME-26NOV13PORSAC-SAC",
-      "YES ask": 0.31,
-      "heuristic probability": 0.462,
-      "estimated edge after assumed fee": 0.132,
-      "games per team (min)": 15,
+      "matchup": "Atlanta vs Chicago",
+      "selection": "Chicago wins",
+      "ticker": "KXNBAGAME-26NOV13ATLCHI-CHI",
+      "YES ask": 0.33,
+      "heuristic probability": 0.485,
+      "estimated edge after assumed fee": 0.135,
+      "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "POR: 4; SAC: 3",
+      "rest days": "ATL: 4; CHI: 4",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -158,15 +158,15 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Atlanta vs Chicago",
-      "selection": "Chicago wins",
-      "ticker": "KXNBAGAME-26NOV13ATLCHI-CHI",
-      "YES ask": 0.34,
-      "heuristic probability": 0.485,
-      "estimated edge after assumed fee": 0.125,
-      "games per team (min)": 14,
+      "matchup": "Portland vs Sacramento",
+      "selection": "Sacramento wins",
+      "ticker": "KXNBAGAME-26NOV13PORSAC-SAC",
+      "YES ask": 0.32,
+      "heuristic probability": 0.462,
+      "estimated edge after assumed fee": 0.122,
+      "games per team (min)": 15,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "ATL: 4; CHI: 4",
+      "rest days": "POR: 4; SAC: 3",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -228,6 +228,20 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Dallas vs Boston",
+      "selection": "Dallas wins",
+      "ticker": "KXNBAGAME-26NOV15DALBOS-DAL",
+      "YES ask": 0.33,
+      "heuristic probability": 0.43,
+      "estimated edge after assumed fee": 0.08,
+      "games per team (min)": 14,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "DAL: 5; BOS: 5",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
       "matchup": "Washington vs Indiana",
       "selection": "Washington wins",
       "ticker": "KXNBAGAME-26NOV11WASIND-WAS",
@@ -242,15 +256,15 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Golden State vs Houston",
-      "selection": "Golden State wins",
-      "ticker": "KXNBAGAME-26NOV11GSWHOU-GSW",
-      "YES ask": 0.38,
-      "heuristic probability": 0.472,
-      "estimated edge after assumed fee": 0.072,
-      "games per team (min)": 18,
+      "matchup": "New York vs Indiana",
+      "selection": "Indiana wins",
+      "ticker": "KXNBAGAME-26NOV13NYKIND-IND",
+      "YES ask": 0.4,
+      "heuristic probability": 0.485,
+      "estimated edge after assumed fee": 0.065,
+      "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "GSW: 2; HOU: 2",
+      "rest days": "NYK: 4; IND: 5",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -265,6 +279,20 @@
       "games per team (min)": 13,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "LAC: 0; PHX: 1",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Golden State vs Houston",
+      "selection": "Golden State wins",
+      "ticker": "KXNBAGAME-26NOV11GSWHOU-GSW",
+      "YES ask": 0.39,
+      "heuristic probability": 0.472,
+      "estimated edge after assumed fee": 0.062,
+      "games per team (min)": 18,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "GSW: 2; HOU: 2",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -298,29 +326,15 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Denver vs Houston",
-      "selection": "Denver wins",
-      "ticker": "KXNBAGAME-26NOV09DENHOU-DEN",
-      "YES ask": 0.39,
-      "heuristic probability": 0.453,
-      "estimated edge after assumed fee": 0.043,
-      "games per team (min)": 19,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "DEN: 1; HOU: 0",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Indiana vs Dallas",
-      "selection": "Indiana wins",
-      "ticker": "KXNBAGAME-26NOV09INDDAL-IND",
+      "matchup": "Milwaukee vs Orlando",
+      "selection": "Milwaukee wins",
+      "ticker": "KXNBAGAME-26NOV13MILORL-MIL",
       "YES ask": 0.38,
-      "heuristic probability": 0.442,
-      "estimated edge after assumed fee": 0.042,
-      "games per team (min)": 14,
+      "heuristic probability": 0.443,
+      "estimated edge after assumed fee": 0.043,
+      "games per team (min)": 15,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "IND: 1; DAL: 0",
+      "rest days": "MIL: 3; ORL: 4",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -382,20 +396,6 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Cleveland vs Miami",
-      "selection": "Miami wins",
-      "ticker": "KXNBAGAME-26NOV13CLEMIA-MIA",
-      "YES ask": 0.57,
-      "heuristic probability": 0.539,
-      "estimated edge after assumed fee": -0.051,
-      "games per team (min)": 16,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "CLE: 4; MIA: 3",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
       "matchup": "Boston vs Philadelphia",
       "selection": "Boston wins",
       "ticker": "KXNBAGAME-26NOV10BOSPHI-BOS",
@@ -424,57 +424,29 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Cleveland vs Miami",
+      "selection": "Miami wins",
+      "ticker": "KXNBAGAME-26NOV13CLEMIA-MIA",
+      "YES ask": 0.59,
+      "heuristic probability": 0.539,
+      "estimated edge after assumed fee": -0.071,
+      "games per team (min)": 16,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "CLE: 4; MIA: 3",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
       "matchup": "Oklahoma City vs Portland",
       "selection": "Oklahoma City wins",
       "ticker": "KXNBAGAME-26NOV10OKCPOR-OKC",
-      "YES ask": 0.53,
+      "YES ask": 0.54,
       "heuristic probability": 0.472,
-      "estimated edge after assumed fee": -0.078,
+      "estimated edge after assumed fee": -0.088,
       "games per team (min)": 19,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "OKC: 1; POR: 1",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Brooklyn vs New Orleans",
-      "selection": "New Orleans wins",
-      "ticker": "KXNBAGAME-26NOV11BKNNOP-NOP",
-      "YES ask": 0.61,
-      "heuristic probability": 0.547,
-      "estimated edge after assumed fee": -0.083,
-      "games per team (min)": 14,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "BKN: 1; NOP: 1",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Indiana vs Dallas",
-      "selection": "Dallas wins",
-      "ticker": "KXNBAGAME-26NOV09INDDAL-DAL",
-      "YES ask": 0.63,
-      "heuristic probability": 0.558,
-      "estimated edge after assumed fee": -0.092,
-      "games per team (min)": 14,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "IND: 1; DAL: 0",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Denver vs Houston",
-      "selection": "Houston wins",
-      "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
-      "YES ask": 0.62,
-      "heuristic probability": 0.547,
-      "estimated edge after assumed fee": -0.093,
-      "games per team (min)": 19,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "DEN: 1; HOU: 0",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -508,15 +480,29 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Boston vs Toronto",
-      "selection": "Boston wins",
-      "ticker": "KXNBAGAME-26NOV11BOSTOR-BOS",
-      "YES ask": 0.59,
-      "heuristic probability": 0.505,
-      "estimated edge after assumed fee": -0.105,
-      "games per team (min)": 21,
+      "matchup": "Brooklyn vs New Orleans",
+      "selection": "New Orleans wins",
+      "ticker": "KXNBAGAME-26NOV11BKNNOP-NOP",
+      "YES ask": 0.63,
+      "heuristic probability": 0.547,
+      "estimated edge after assumed fee": -0.103,
+      "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "BOS: 1; TOR: 3",
+      "rest days": "BKN: 1; NOP: 1",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Oklahoma City vs Portland",
+      "selection": "Oklahoma City wins",
+      "ticker": "KXNBAGAME-26NOV11OKCPOR-OKC",
+      "YES ask": 0.56,
+      "heuristic probability": 0.472,
+      "estimated edge after assumed fee": -0.108,
+      "games per team (min)": 19,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "OKC: 2; POR: 2",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -536,15 +522,15 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Oklahoma City vs Portland",
-      "selection": "Oklahoma City wins",
-      "ticker": "KXNBAGAME-26NOV11OKCPOR-OKC",
-      "YES ask": 0.57,
-      "heuristic probability": 0.472,
-      "estimated edge after assumed fee": -0.118,
-      "games per team (min)": 19,
+      "matchup": "Boston vs Toronto",
+      "selection": "Boston wins",
+      "ticker": "KXNBAGAME-26NOV11BOSTOR-BOS",
+      "YES ask": 0.6,
+      "heuristic probability": 0.505,
+      "estimated edge after assumed fee": -0.115,
+      "games per team (min)": 21,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "OKC: 2; POR: 2",
+      "rest days": "BOS: 1; TOR: 3",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -553,9 +539,9 @@
       "matchup": "Toronto vs Philadelphia",
       "selection": "Philadelphia wins",
       "ticker": "KXNBAGAME-26NOV12TORPHI-PHI",
-      "YES ask": 0.69,
+      "YES ask": 0.7,
       "heuristic probability": 0.567,
-      "estimated edge after assumed fee": -0.143,
+      "estimated edge after assumed fee": -0.153,
       "games per team (min)": 21,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "TOR: 4; PHI: 3",
@@ -606,6 +592,20 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
+      "matchup": "New York vs Indiana",
+      "selection": "New York wins",
+      "ticker": "KXNBAGAME-26NOV13NYKIND-NYK",
+      "YES ask": 0.67,
+      "heuristic probability": 0.515,
+      "estimated edge after assumed fee": -0.175,
+      "games per team (min)": 14,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "NYK: 4; IND: 5",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
       "matchup": "Denver vs Memphis",
       "selection": "Denver wins",
       "ticker": "KXNBAGAME-26NOV11DENMEM-DEN",
@@ -651,12 +651,26 @@
       "matchup": "Portland vs Sacramento",
       "selection": "Portland wins",
       "ticker": "KXNBAGAME-26NOV13PORSAC-POR",
-      "YES ask": 0.74,
+      "YES ask": 0.73,
       "heuristic probability": 0.538,
-      "estimated edge after assumed fee": -0.222,
+      "estimated edge after assumed fee": -0.212,
       "games per team (min)": 15,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "POR: 4; SAC: 3",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Milwaukee vs Orlando",
+      "selection": "Orlando wins",
+      "ticker": "KXNBAGAME-26NOV13MILORL-ORL",
+      "YES ask": 0.76,
+      "heuristic probability": 0.557,
+      "estimated edge after assumed fee": -0.223,
+      "games per team (min)": 15,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "MIL: 3; ORL: 4",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -693,26 +707,12 @@
       "matchup": "Detroit vs Washington",
       "selection": "Detroit wins",
       "ticker": "KXNBAGAME-26NOV12DETWAS-DET",
-      "YES ask": 0.76,
+      "YES ask": 0.75,
       "heuristic probability": 0.494,
-      "estimated edge after assumed fee": -0.286,
+      "estimated edge after assumed fee": -0.276,
       "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "DET: 3; WAS: 3",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Miami vs Utah",
-      "selection": "Miami wins",
-      "ticker": "KXNBAGAME-26NOV10MIAUTA-MIA",
-      "YES ask": 0.76,
-      "heuristic probability": 0.489,
-      "estimated edge after assumed fee": -0.291,
-      "games per team (min)": 14,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "MIA: 0; UTA: 0",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -735,12 +735,54 @@
       "matchup": "Los Angeles L vs Milwaukee",
       "selection": "Los Angeles L wins",
       "ticker": "KXNBAGAME-26NOV11LALMIL-LAL",
-      "YES ask": 0.82,
+      "YES ask": 0.81,
       "heuristic probability": 0.531,
-      "estimated edge after assumed fee": -0.309,
+      "estimated edge after assumed fee": -0.299,
       "games per team (min)": 15,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "LAL: 2; MIL: 1",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Miami vs Utah",
+      "selection": "Miami wins",
+      "ticker": "KXNBAGAME-26NOV10MIAUTA-MIA",
+      "YES ask": 0.79,
+      "heuristic probability": 0.489,
+      "estimated edge after assumed fee": -0.321,
+      "games per team (min)": 14,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "MIA: 0; UTA: 0",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Dallas vs Boston",
+      "selection": "Boston wins",
+      "ticker": "KXNBAGAME-26NOV15DALBOS-BOS",
+      "YES ask": 0.88,
+      "heuristic probability": 0.57,
+      "estimated edge after assumed fee": -0.33,
+      "games per team (min)": 14,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "DAL: 5; BOS: 5",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Oklahoma City vs Los Angeles C",
+      "selection": "Oklahoma City wins",
+      "ticker": "KXNBAGAME-26NOV13OKCLAC-OKC",
+      "YES ask": 0.83,
+      "heuristic probability": 0.518,
+      "estimated edge after assumed fee": -0.332,
+      "games per team (min)": 13,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "OKC: 4; LAC: 3",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -755,20 +797,6 @@
       "games per team (min)": 15,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "MIL: 0; NYK: 1",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Oklahoma City vs Los Angeles C",
-      "selection": "Oklahoma City wins",
-      "ticker": "KXNBAGAME-26NOV13OKCLAC-OKC",
-      "YES ask": 0.86,
-      "heuristic probability": 0.518,
-      "estimated edge after assumed fee": -0.362,
-      "games per team (min)": 13,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "OKC: 4; LAC: 3",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -794,9 +822,9 @@
       "matchup": "San Antonio vs Chicago",
       "selection": "Chicago wins",
       "ticker": "KXNBAGAME-26NOV11SASCHI-CHI",
-      "YES ask": 0.15,
+      "YES ask": 0.14,
       "heuristic probability": 0.478,
-      "estimated edge after assumed fee": 0.308,
+      "estimated edge after assumed fee": 0.318,
       "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
       "rest days": "SAS: 2; CHI: 2",
@@ -819,29 +847,29 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Oklahoma City vs Los Angeles C",
-      "selection": "Los Angeles C wins",
-      "ticker": "KXNBAGAME-26NOV13OKCLAC-LAC",
-      "YES ask": 0.18,
-      "heuristic probability": 0.482,
-      "estimated edge after assumed fee": 0.282,
-      "games per team (min)": 13,
+      "matchup": "Miami vs Utah",
+      "selection": "Utah wins",
+      "ticker": "KXNBAGAME-26NOV10MIAUTA-UTA",
+      "YES ask": 0.22,
+      "heuristic probability": 0.511,
+      "estimated edge after assumed fee": 0.271,
+      "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "OKC: 4; LAC: 3",
+      "rest days": "MIA: 0; UTA: 0",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Los Angeles L vs Milwaukee",
-      "selection": "Milwaukee wins",
-      "ticker": "KXNBAGAME-26NOV11LALMIL-MIL",
-      "YES ask": 0.19,
-      "heuristic probability": 0.469,
-      "estimated edge after assumed fee": 0.259,
-      "games per team (min)": 15,
+      "matchup": "Oklahoma City vs Los Angeles C",
+      "selection": "Los Angeles C wins",
+      "ticker": "KXNBAGAME-26NOV13OKCLAC-LAC",
+      "YES ask": 0.21,
+      "heuristic probability": 0.482,
+      "estimated edge after assumed fee": 0.252,
+      "games per team (min)": 13,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "LAL: 2; MIL: 1",
+      "rest days": "OKC: 4; LAC: 3",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -861,15 +889,29 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Miami vs Utah",
-      "selection": "Utah wins",
-      "ticker": "KXNBAGAME-26NOV10MIAUTA-UTA",
-      "YES ask": 0.26,
-      "heuristic probability": 0.511,
-      "estimated edge after assumed fee": 0.231,
+      "matchup": "Los Angeles L vs Milwaukee",
+      "selection": "Milwaukee wins",
+      "ticker": "KXNBAGAME-26NOV11LALMIL-MIL",
+      "YES ask": 0.21,
+      "heuristic probability": 0.469,
+      "estimated edge after assumed fee": 0.239,
+      "games per team (min)": 15,
+      "venue evidence": "ESPN-confirmed home court",
+      "rest days": "LAL: 2; MIL: 1",
+      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
+      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
+    },
+    {
+      "model confidence": "LIMITED EVIDENCE",
+      "matchup": "Detroit vs Washington",
+      "selection": "Washington wins",
+      "ticker": "KXNBAGAME-26NOV12DETWAS-WAS",
+      "YES ask": 0.27,
+      "heuristic probability": 0.506,
+      "estimated edge after assumed fee": 0.216,
       "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "MIA: 0; UTA: 0",
+      "rest days": "DET: 3; WAS: 3",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     },
@@ -889,20 +931,6 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Detroit vs Washington",
-      "selection": "Washington wins",
-      "ticker": "KXNBAGAME-26NOV12DETWAS-WAS",
-      "YES ask": 0.28,
-      "heuristic probability": 0.506,
-      "estimated edge after assumed fee": 0.206,
-      "games per team (min)": 14,
-      "venue evidence": "ESPN-confirmed home court",
-      "rest days": "DET: 3; WAS: 3",
-      "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
-      "signal": "EXPLORATORY \u2014 NOT VALIDATED"
-    },
-    {
-      "model confidence": "LIMITED EVIDENCE",
       "matchup": "Orlando vs Sacramento",
       "selection": "Sacramento wins",
       "ticker": "KXNBAGAME-26NOV10ORLSAC-SAC",
@@ -917,15 +945,15 @@
     },
     {
       "model confidence": "LIMITED EVIDENCE",
-      "matchup": "Portland vs Sacramento",
-      "selection": "Sacramento wins",
-      "ticker": "KXNBAGAME-26NOV13PORSAC-SAC",
-      "YES ask": 0.31,
-      "heuristic probability": 0.462,
-      "estimated edge after assumed fee": 0.132,
-      "games per team (min)": 15,
+      "matchup": "Atlanta vs Chicago",
+      "selection": "Chicago wins",
+      "ticker": "KXNBAGAME-26NOV13ATLCHI-CHI",
+      "YES ask": 0.33,
+      "heuristic probability": 0.485,
+      "estimated edge after assumed fee": 0.135,
+      "games per team (min)": 14,
       "venue evidence": "ESPN-confirmed home court",
-      "rest days": "POR: 4; SAC: 3",
+      "rest days": "ATL: 4; CHI: 4",
       "model reliability": "PRELIMINARY ONLY \u2014 NO PRICE BACKTEST",
       "signal": "EXPLORATORY \u2014 NOT VALIDATED"
     }
@@ -991,15 +1019,15 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV13OKCLAC-LAC",
-      "matchup": "Oklahoma City vs Los Angeles C",
+      "ticker": "KXNBAGAME-26NOV10MIAUTA-UTA",
+      "matchup": "Miami vs Utah",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV11LALMIL-MIL",
-      "matchup": "Los Angeles L vs Milwaukee",
+      "ticker": "KXNBAGAME-26NOV13OKCLAC-LAC",
+      "matchup": "Oklahoma City vs Los Angeles C",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1012,15 +1040,8 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV10MIAUTA-UTA",
-      "matchup": "Miami vs Utah",
-      "status": "NOT VERIFIED",
-      "source": "No authoritative injury/lineup feed configured",
-      "forecast_adjustment": "NONE \u2014 injuries not included"
-    },
-    {
-      "ticker": "KXNBAGAME-26NOV09SASPHX-PHX",
-      "matchup": "San Antonio vs Phoenix",
+      "ticker": "KXNBAGAME-26NOV11LALMIL-MIL",
+      "matchup": "Los Angeles L vs Milwaukee",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1033,6 +1054,13 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
+      "ticker": "KXNBAGAME-26NOV09SASPHX-PHX",
+      "matchup": "San Antonio vs Phoenix",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
       "ticker": "KXNBAGAME-26NOV10ORLSAC-SAC",
       "matchup": "Orlando vs Sacramento",
       "status": "NOT VERIFIED",
@@ -1040,8 +1068,8 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV13PORSAC-SAC",
-      "matchup": "Portland vs Sacramento",
+      "ticker": "KXNBAGAME-26NOV13ATLCHI-CHI",
+      "matchup": "Atlanta vs Chicago",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1054,8 +1082,8 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV13ATLCHI-CHI",
-      "matchup": "Atlanta vs Chicago",
+      "ticker": "KXNBAGAME-26NOV13PORSAC-SAC",
+      "matchup": "Portland vs Sacramento",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1089,6 +1117,13 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
+      "ticker": "KXNBAGAME-26NOV15DALBOS-DAL",
+      "matchup": "Dallas vs Boston",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
       "ticker": "KXNBAGAME-26NOV11WASIND-WAS",
       "matchup": "Washington vs Indiana",
       "status": "NOT VERIFIED",
@@ -1096,8 +1131,8 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV11GSWHOU-GSW",
-      "matchup": "Golden State vs Houston",
+      "ticker": "KXNBAGAME-26NOV13NYKIND-IND",
+      "matchup": "New York vs Indiana",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1105,6 +1140,13 @@
     {
       "ticker": "KXNBAGAME-26NOV10LACPHX-LAC",
       "matchup": "Los Angeles C vs Phoenix",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
+      "ticker": "KXNBAGAME-26NOV11GSWHOU-GSW",
+      "matchup": "Golden State vs Houston",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1124,15 +1166,8 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV09DENHOU-DEN",
-      "matchup": "Denver vs Houston",
-      "status": "NOT VERIFIED",
-      "source": "No authoritative injury/lineup feed configured",
-      "forecast_adjustment": "NONE \u2014 injuries not included"
-    },
-    {
-      "ticker": "KXNBAGAME-26NOV09INDDAL-IND",
-      "matchup": "Indiana vs Dallas",
+      "ticker": "KXNBAGAME-26NOV13MILORL-MIL",
+      "matchup": "Milwaukee vs Orlando",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1166,13 +1201,6 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV13CLEMIA-MIA",
-      "matchup": "Cleveland vs Miami",
-      "status": "NOT VERIFIED",
-      "source": "No authoritative injury/lineup feed configured",
-      "forecast_adjustment": "NONE \u2014 injuries not included"
-    },
-    {
       "ticker": "KXNBAGAME-26NOV10BOSPHI-BOS",
       "matchup": "Boston vs Philadelphia",
       "status": "NOT VERIFIED",
@@ -1187,29 +1215,15 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
+      "ticker": "KXNBAGAME-26NOV13CLEMIA-MIA",
+      "matchup": "Cleveland vs Miami",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
       "ticker": "KXNBAGAME-26NOV10OKCPOR-OKC",
       "matchup": "Oklahoma City vs Portland",
-      "status": "NOT VERIFIED",
-      "source": "No authoritative injury/lineup feed configured",
-      "forecast_adjustment": "NONE \u2014 injuries not included"
-    },
-    {
-      "ticker": "KXNBAGAME-26NOV11BKNNOP-NOP",
-      "matchup": "Brooklyn vs New Orleans",
-      "status": "NOT VERIFIED",
-      "source": "No authoritative injury/lineup feed configured",
-      "forecast_adjustment": "NONE \u2014 injuries not included"
-    },
-    {
-      "ticker": "KXNBAGAME-26NOV09INDDAL-DAL",
-      "matchup": "Indiana vs Dallas",
-      "status": "NOT VERIFIED",
-      "source": "No authoritative injury/lineup feed configured",
-      "forecast_adjustment": "NONE \u2014 injuries not included"
-    },
-    {
-      "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
-      "matchup": "Denver vs Houston",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1229,8 +1243,15 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV11BOSTOR-BOS",
-      "matchup": "Boston vs Toronto",
+      "ticker": "KXNBAGAME-26NOV11BKNNOP-NOP",
+      "matchup": "Brooklyn vs New Orleans",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
+      "ticker": "KXNBAGAME-26NOV11OKCPOR-OKC",
+      "matchup": "Oklahoma City vs Portland",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1243,8 +1264,8 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV11OKCPOR-OKC",
-      "matchup": "Oklahoma City vs Portland",
+      "ticker": "KXNBAGAME-26NOV11BOSTOR-BOS",
+      "matchup": "Boston vs Toronto",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1278,6 +1299,13 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
+      "ticker": "KXNBAGAME-26NOV13NYKIND-NYK",
+      "matchup": "New York vs Indiana",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
       "ticker": "KXNBAGAME-26NOV11DENMEM-DEN",
       "matchup": "Denver vs Memphis",
       "status": "NOT VERIFIED",
@@ -1306,6 +1334,13 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
+      "ticker": "KXNBAGAME-26NOV13MILORL-ORL",
+      "matchup": "Milwaukee vs Orlando",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
       "ticker": "KXNBAGAME-26NOV13ATLCHI-ATL",
       "matchup": "Atlanta vs Chicago",
       "status": "NOT VERIFIED",
@@ -1327,13 +1362,6 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV10MIAUTA-MIA",
-      "matchup": "Miami vs Utah",
-      "status": "NOT VERIFIED",
-      "source": "No authoritative injury/lineup feed configured",
-      "forecast_adjustment": "NONE \u2014 injuries not included"
-    },
-    {
       "ticker": "KXNBAGAME-26NOV09NOPGSW-GSW",
       "matchup": "New Orleans vs Golden State",
       "status": "NOT VERIFIED",
@@ -1348,8 +1376,15 @@
       "forecast_adjustment": "NONE \u2014 injuries not included"
     },
     {
-      "ticker": "KXNBAGAME-26NOV10MILNYK-NYK",
-      "matchup": "Milwaukee vs New York",
+      "ticker": "KXNBAGAME-26NOV10MIAUTA-MIA",
+      "matchup": "Miami vs Utah",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
+      "ticker": "KXNBAGAME-26NOV15DALBOS-BOS",
+      "matchup": "Dallas vs Boston",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
@@ -1357,6 +1392,13 @@
     {
       "ticker": "KXNBAGAME-26NOV13OKCLAC-OKC",
       "matchup": "Oklahoma City vs Los Angeles C",
+      "status": "NOT VERIFIED",
+      "source": "No authoritative injury/lineup feed configured",
+      "forecast_adjustment": "NONE \u2014 injuries not included"
+    },
+    {
+      "ticker": "KXNBAGAME-26NOV10MILNYK-NYK",
+      "matchup": "Milwaukee vs New York",
       "status": "NOT VERIFIED",
       "source": "No authoritative injury/lineup feed configured",
       "forecast_adjustment": "NONE \u2014 injuries not included"
