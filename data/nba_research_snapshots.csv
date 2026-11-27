@@ -289,3 +289,13 @@ snapshot_utc,ticker,matchup,selection,yes_ask,model_probability,assumed_fee,esti
 2026-11-26 23:47:53 UTC,KXNBAGAME-26NOV29MINSAC-SAC,Minnesota vs Sacramento,Sacramento wins,0.23,0.409,0.02,0.159,2026-11-29,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-26 23:47:53 UTC,KXNBAGAME-26NOV29NOPPOR-NOP,New Orleans vs Portland,New Orleans wins,0.22,0.38,0.02,0.14,2026-11-29,PENDING,,,Game outcome pending; Kalshi settlement not checked
 2026-11-26 23:47:53 UTC,KXNBAGAME-26NOV29ATLNYK-ATL,Atlanta vs New York,Atlanta wins,0.29,0.449,0.02,0.139,2026-11-29,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV30OKCBKN-BKN,Oklahoma City vs Brooklyn,Brooklyn wins,0.18,0.514,0.02,0.314,2026-11-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV28OKCMIL-MIL,Oklahoma City vs Milwaukee,Milwaukee wins,0.18,0.469,0.02,0.269,2026-11-28,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV30SASMIL-MIL,San Antonio vs Milwaukee,Milwaukee wins,0.14,0.413,0.02,0.253,2026-11-30,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV27DENUTA-UTA,Denver vs Utah,Utah wins,0.23,0.459,0.02,0.209,2026-11-27,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV27ATLBOS-ATL,Atlanta vs Boston,Atlanta wins,0.24,0.457,0.02,0.197,2026-11-27,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV28PHIHOU-PHI,Philadelphia vs Houston,Philadelphia wins,0.24,0.452,0.02,0.192,2026-11-28,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV27BKNTOR-BKN,Brooklyn vs Toronto,Brooklyn wins,0.25,0.459,0.02,0.189,2026-11-27,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26DEC01INDCLE-IND,Indiana vs Cleveland,Indiana wins,0.23,0.435,0.02,0.185,2026-12-01,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV29MINSAC-SAC,Minnesota vs Sacramento,Sacramento wins,0.22,0.41,0.02,0.17,2026-11-29,PENDING,,,Game outcome pending; Kalshi settlement not checked
+2026-11-27 23:24:29 UTC,KXNBAGAME-26NOV29NOPPOR-NOP,New Orleans vs Portland,New Orleans wins,0.2,0.38,0.02,0.16,2026-11-29,PENDING,,,Game outcome pending; Kalshi settlement not checked
